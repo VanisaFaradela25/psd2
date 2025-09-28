@@ -390,15 +390,15 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menginstall-library">Menginstall Library</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data">Membaca Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-data">Encoding Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi">Perbandingan Data Sebelum dan Sesudah Standarisasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-dengan-min-max-scaler">Normalisasi Data dengan Min-Max Scaler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pca">Implementasi PCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-data">Encoding Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi">Perbandingan Data Sebelum dan Sesudah Standarisasi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-dengan-min-max-scaler">Normalisasi Data dengan Min-Max Scaler</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pca">Implementasi PCA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referensi">Referensi</a></li>
 </ul>
             </nav>
@@ -463,22 +463,21 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting imbalanced-learnNote: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached imbalanced_learn-0.12.4-py3-none-any.whl (258 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting imbalanced-learn
+  Using cached imbalanced_learn-0.12.4-py3-none-any.whl (258 kB)
 Requirement already satisfied: threadpoolctl&gt;=2.0.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (3.6.0)
 Collecting scikit-learn&gt;=1.0.2
   Using cached scikit_learn-1.6.1-cp39-cp39-win_amd64.whl (11.2 MB)
+Requirement already satisfied: scipy&gt;=1.5.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.13.1)
+Requirement already satisfied: joblib&gt;=1.1.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.5.2)
 Requirement already satisfied: numpy&gt;=1.17.3 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (2.0.2)
-Collecting scipy&gt;=1.5.0
-  Using cached scipy-1.13.1-cp39-cp39-win_amd64.whl (46.2 MB)
-Collecting joblib&gt;=1.1.1
-  Using cached joblib-1.5.2-py3-none-any.whl (308 kB)
-Installing collected packages: scipy, joblib, scikit-learn, imbalanced-learn
+Installing collected packages: scikit-learn, imbalanced-learn
+Successfully installed imbalanced-learn-0.12.4 scikit-learn-1.6.1
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: You are using pip version 22.0.4; however, version 25.2 is available.
+You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs\Python\Python39\python.exe -m pip install --upgrade pip&#39; command.
 </pre></div>
 </div>
 </div>
@@ -490,102 +489,32 @@ Installing collected packages: scipy, joblib, scikit-learn, imbalanced-learn
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas
-  Downloading pandas-2.3.2-cp313-cp313-win_amd64.whl.metadata (19 kB)
-Requirement already satisfied: scikit-learn in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (1.6.1)
-Requirement already satisfied: imbalanced-learn in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (0.14.0)
-Collecting matplotlib
-  Downloading matplotlib-3.10.6-cp313-cp313-win_amd64.whl.metadata (11 kB)
-Requirement already satisfied: numpy&gt;=1.26.0 in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (from pandas) (2.2.3)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\triad\appdata\roaming\python\python313\site-packages (from pandas) (2.9.0.post0)
-Collecting pytz&gt;=2020.1 (from pandas)
-  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
-Collecting tzdata&gt;=2022.7 (from pandas)
-  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
-Requirement already satisfied: scipy&gt;=1.6.0 in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (from scikit-learn) (1.15.2)
-Requirement already satisfied: joblib&gt;=1.2.0 in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (from scikit-learn) (1.4.2)
-Requirement already satisfied: threadpoolctl&gt;=3.1.0 in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (from scikit-learn) (3.5.0)
-Collecting contourpy&gt;=1.0.1 (from matplotlib)
-  Downloading contourpy-1.3.3-cp313-cp313-win_amd64.whl.metadata (5.5 kB)
-Collecting cycler&gt;=0.10 (from matplotlib)
-  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
-Collecting fonttools&gt;=4.22.0 (from matplotlib)
-  Downloading fonttools-4.60.0-cp313-cp313-win_amd64.whl.metadata (113 kB)
-Collecting kiwisolver&gt;=1.3.1 (from matplotlib)
-  Downloading kiwisolver-1.4.9-cp313-cp313-win_amd64.whl.metadata (6.4 kB)
-Requirement already satisfied: packaging&gt;=20.0 in c:\users\triad\appdata\roaming\python\python313\site-packages (from matplotlib) (24.2)
-Collecting pillow&gt;=8 (from matplotlib)
-  Downloading pillow-11.3.0-cp313-cp313-win_amd64.whl.metadata (9.2 kB)
-Collecting pyparsing&gt;=2.3.1 (from matplotlib)
-  Downloading pyparsing-3.2.5-py3-none-any.whl.metadata (5.0 kB)
-Requirement already satisfied: six&gt;=1.5 in c:\users\triad\appdata\roaming\python\python313\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
-Downloading pandas-2.3.2-cp313-cp313-win_amd64.whl (11.0 MB)
-   ---------------------------------------- 0.0/11.0 MB ? eta -:--:--
-   - -------------------------------------- 0.5/11.0 MB 2.5 MB/s eta 0:00:05
-   ---- ----------------------------------- 1.3/11.0 MB 4.1 MB/s eta 0:00:03
-   ------- -------------------------------- 2.1/11.0 MB 3.8 MB/s eta 0:00:03
-   ------------ --------------------------- 3.4/11.0 MB 4.4 MB/s eta 0:00:02
-   --------------- ------------------------ 4.2/11.0 MB 4.4 MB/s eta 0:00:02
-   ----------------- ---------------------- 4.7/11.0 MB 4.2 MB/s eta 0:00:02
-   --------------------- ------------------ 5.8/11.0 MB 4.1 MB/s eta 0:00:02
-   ------------------------ --------------- 6.8/11.0 MB 4.2 MB/s eta 0:00:01
-   -------------------------- ------------- 7.3/11.0 MB 4.1 MB/s eta 0:00:01
-   ---------------------------- ----------- 7.9/11.0 MB 3.9 MB/s eta 0:00:01
-   ----------------------------- ---------- 8.1/11.0 MB 3.8 MB/s eta 0:00:01
-   ------------------------------- -------- 8.7/11.0 MB 3.6 MB/s eta 0:00:01
-   -------------------------------- ------- 8.9/11.0 MB 3.4 MB/s eta 0:00:01
-   --------------------------------- ------ 9.2/11.0 MB 3.3 MB/s eta 0:00:01
-   ---------------------------------- ----- 9.4/11.0 MB 3.2 MB/s eta 0:00:01
-   ----------------------------------- ---- 9.7/11.0 MB 3.0 MB/s eta 0:00:01
-   ---------------------------------------  10.7/11.0 MB 3.0 MB/s eta 0:00:01
-   ---------------------------------------- 11.0/11.0 MB 3.0 MB/s eta 0:00:00
-Downloading matplotlib-3.10.6-cp313-cp313-win_amd64.whl (8.1 MB)
-   ---------------------------------------- 0.0/8.1 MB ? eta -:--:--
-   --- ------------------------------------ 0.8/8.1 MB 4.1 MB/s eta 0:00:02
-   --------- ------------------------------ 1.8/8.1 MB 4.2 MB/s eta 0:00:02
-   --------------- ------------------------ 3.1/8.1 MB 4.9 MB/s eta 0:00:02
-   ------------------- -------------------- 3.9/8.1 MB 4.6 MB/s eta 0:00:01
-   --------------------- ------------------ 4.5/8.1 MB 4.4 MB/s eta 0:00:01
-   ------------------------ --------------- 5.0/8.1 MB 4.0 MB/s eta 0:00:01
-   ------------------------- -------------- 5.2/8.1 MB 3.7 MB/s eta 0:00:01
-   ----------------------------- ---------- 6.0/8.1 MB 3.6 MB/s eta 0:00:01
-   -------------------------------- ------- 6.6/8.1 MB 3.5 MB/s eta 0:00:01
-   ------------------------------------- -- 7.6/8.1 MB 3.6 MB/s eta 0:00:01
-   ---------------------------------------- 8.1/8.1 MB 3.6 MB/s eta 0:00:00
-Downloading contourpy-1.3.3-cp313-cp313-win_amd64.whl (226 kB)
-Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
-Downloading fonttools-4.60.0-cp313-cp313-win_amd64.whl (2.3 MB)
-   ---------------------------------------- 0.0/2.3 MB ? eta -:--:--
-   ------------- -------------------------- 0.8/2.3 MB 5.9 MB/s eta 0:00:01
-   ------------------ --------------------- 1.0/2.3 MB 4.2 MB/s eta 0:00:01
-   ---------------------------------------- 2.3/2.3 MB 3.9 MB/s eta 0:00:00
-Downloading kiwisolver-1.4.9-cp313-cp313-win_amd64.whl (73 kB)
-Downloading pillow-11.3.0-cp313-cp313-win_amd64.whl (7.0 MB)
-   ---------------------------------------- 0.0/7.0 MB ? eta -:--:--
-   --- ------------------------------------ 0.5/7.0 MB 3.4 MB/s eta 0:00:02
-   --------- ------------------------------ 1.6/7.0 MB 4.0 MB/s eta 0:00:02
-   ------------- -------------------------- 2.4/7.0 MB 3.9 MB/s eta 0:00:02
-   ---------------- ----------------------- 2.9/7.0 MB 3.6 MB/s eta 0:00:02
-   ------------------- -------------------- 3.4/7.0 MB 3.3 MB/s eta 0:00:02
-   ------------------------ --------------- 4.2/7.0 MB 3.5 MB/s eta 0:00:01
-   ---------------------------- ----------- 5.0/7.0 MB 3.7 MB/s eta 0:00:01
-   ------------------------------- -------- 5.5/7.0 MB 3.5 MB/s eta 0:00:01
-   ---------------------------------- ----- 6.0/7.0 MB 3.3 MB/s eta 0:00:01
-   ------------------------------------- -- 6.6/7.0 MB 3.2 MB/s eta 0:00:01
-   ---------------------------------------- 7.0/7.0 MB 3.1 MB/s eta 0:00:00
-Downloading pyparsing-3.2.5-py3-none-any.whl (113 kB)
-Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
-Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
-Installing collected packages: pytz, tzdata, pyparsing, pillow, kiwisolver, fonttools, cycler, contourpy, pandas, matplotlib
-Successfully installed contourpy-1.3.3 cycler-0.12.1 fonttools-4.60.0 kiwisolver-1.4.9 matplotlib-3.10.6 pandas-2.3.2 pillow-11.3.0 pyparsing-3.2.5 pytz-2025.2 tzdata-2025.2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (2.3.2)
+Requirement already satisfied: scikit-learn in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (1.6.1)
+Requirement already satisfied: imbalanced-learn in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (0.12.4)
+Requirement already satisfied: matplotlib in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (3.9.4)
+Requirement already satisfied: numpy&gt;=1.22.4 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2.0.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2025.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2025.2)
+Requirement already satisfied: scipy&gt;=1.6.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (1.13.1)
+Requirement already satisfied: joblib&gt;=1.2.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (1.5.2)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (3.6.0)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (4.60.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.3.0)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (25.0)
+Requirement already satisfied: pillow&gt;=8 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (11.3.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (3.2.5)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (6.5.2)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.4.7)
+Requirement already satisfied: zipp&gt;=3.1.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib) (3.23.0)
+Requirement already satisfied: six&gt;=1.5 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
 Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  WARNING: The scripts fonttools.exe, pyftmerge.exe, pyftsubset.exe and ttx.exe are installed in &#39;c:\Users\triad\AppData\Local\Programs\Python\Python313\Scripts&#39; which is not on PATH.
-  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
-
-[notice] A new release of pip is available: 24.3.1 -&gt; 25.2
-[notice] To update, run: python.exe -m pip install --upgrade pip
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: You are using pip version 22.0.4; however, version 25.2 is available.
+You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs\Python\Python39\python.exe -m pip install --upgrade pip&#39; command.
 </pre></div>
 </div>
 </div>
@@ -798,9 +727,8 @@ Note: you may need to restart the kernel to use updated packages.
 </div></div></div>
 </div>
 </section>
-</section>
 <section id="encoding-data">
-<h2>Encoding Data<a class="headerlink" href="#encoding-data" title="Link to this heading">#</a></h2>
+<h3>Encoding Data<a class="headerlink" href="#encoding-data" title="Link to this heading">#</a></h3>
 <p>Kode ini digunakan untuk mengubah label teks menjadi angka agar dapat diproses oleh model machine learning, dan kemudian menampilkan jumlah data di setiap kelas. Langkah ini penting dilakukan terutama sebelum melakukan langkah seperti klasifikasi atau penyeimbangan data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -811,22 +739,59 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    143
-1     77
-7     52
-4     35
-5     20
-6      5
-2      2
-3      2
-Name: count, dtype: int64
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\indexes\base.py:3812,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3811</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3812</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3813</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File pandas/_libs/index.pyx:167,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/index.pyx:196,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7088,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7096,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;localization_class&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">y_enc</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_enc</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\frame.py:4107,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4105</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4106</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4107</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4108</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">4109</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\indexes\base.py:3819,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3814</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3815</span>         <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3816</span>         <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3817</span>     <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3818</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3819</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3820</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3821</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3822</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3823</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3824</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &#39;localization_class&#39;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">
-<h2>Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan<a class="headerlink" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan" title="Link to this heading">#</a></h2>
+<h3>Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan<a class="headerlink" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan" title="Link to this heading">#</a></h3>
 <p>Sebelum dilakukan proses penyeimbangan data, saya membuat grafik batang untuk melihat jumlah sampel pada setiap kelas. Grafik ini membantu saya mengetahui apakah data yang digunakan seimbang atau tidak. Dari grafik tersebut biasanya terlihat bahwa ada kelas yang jumlah datanya jauh lebih banyak dibanding kelas lain. Kondisi seperti ini disebut ketidakseimbangan data (imbalanced data), dan jika dibiarkan, bisa membuat model hanya “menyukai” kelas yang jumlahnya besar saja, sementara kelas kecil diabaikan. Karena itu, grafik ini penting sebagai langkah awal untuk memahami kondisi data sebelum dilakukan penyeimbangan dengan metode seperti SMOTE atau ADASYN.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -848,7 +813,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="perbandingan-data-sebelum-dan-sesudah-standarisasi">
-<h2>Perbandingan Data Sebelum dan Sesudah Standarisasi<a class="headerlink" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi" title="Link to this heading">#</a></h2>
+<h3>Perbandingan Data Sebelum dan Sesudah Standarisasi<a class="headerlink" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi" title="Link to this heading">#</a></h3>
 <p>Pada langkah ini, dilakukan proses standarisasi terhadap data. Sebelum distandarisasi, setiap fitur (kolom) memiliki skala yang berbeda-beda. Misalnya, ada fitur dengan nilai kecil (seperti 0.1 atau 0.2) dan ada juga fitur dengan nilai besar. Hal ini bisa membuat algoritma machine learning sulit membandingkan antar fitur karena perbedaan skala tersebut.</p>
 <p>Setelah dilakukan standarisasi menggunakan StandardScaler, semua fitur diubah menjadi skala yang seragam dengan nilai rata-rata mendekati nol dan standar deviasi satu. Dengan cara ini, setiap fitur memiliki pengaruh yang seimbang ketika digunakan dalam pemodelan.</p>
 <p>Tabel pertama menunjukkan data asli sebelum standarisasi, sedangkan tabel kedua memperlihatkan data setelah standarisasi. Perubahan ini memastikan data lebih siap digunakan untuk analisis lebih lanjut, seperti PCA maupun oversampling.</p>
@@ -1044,7 +1009,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="normalisasi-data-dengan-min-max-scaler">
-<h2>Normalisasi Data dengan Min-Max Scaler<a class="headerlink" href="#normalisasi-data-dengan-min-max-scaler" title="Link to this heading">#</a></h2>
+<h3>Normalisasi Data dengan Min-Max Scaler<a class="headerlink" href="#normalisasi-data-dengan-min-max-scaler" title="Link to this heading">#</a></h3>
 <p>Pada bagian ini dilakukan normalisasi data menggunakan metode Min-Max Scaler. Normalisasi bertujuan untuk mengubah nilai setiap fitur ke dalam rentang 0 hingga 1, tanpa mengubah pola hubungan antar data. Dengan cara ini, semua fitur berada pada skala yang sama sehingga tidak ada fitur dengan nilai besar yang mendominasi analisis. Tabel hasil normalisasi memperlihatkan data yang sudah dikonversi, di mana setiap kolom kini memiliki nilai yang konsisten dalam rentang 0 sampai 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1144,7 +1109,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="implementasi-pca">
-<h2>Implementasi PCA<a class="headerlink" href="#implementasi-pca" title="Link to this heading">#</a></h2>
+<h3>Implementasi PCA<a class="headerlink" href="#implementasi-pca" title="Link to this heading">#</a></h3>
 <p>Pada tahap ini digunakan metode Principal Component Analysis (PCA) untuk menyederhanakan data. PCA mengambil informasi terpenting dari data yang memiliki banyak variabel, lalu mereduksinya menjadi dua komponen utama (PC1 dan PC2). Dengan cara ini, pola dalam data tetap terjaga meskipun dimensinya dikurangi. Hasilnya berupa data baru dengan dua sumbu utama, sehingga lebih mudah divisualisasikan dalam bentuk scatter plot dan membantu memahami perbedaan antar kelas secara lebih jelas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1276,7 +1241,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="smote">
-<h2>SMOTE<a class="headerlink" href="#smote" title="Link to this heading">#</a></h2>
+<h3>SMOTE<a class="headerlink" href="#smote" title="Link to this heading">#</a></h3>
 <p>Scatter plot ini menampilkan data setelah dikurangi dimensinya menjadi dua komponen utama menggunakan PCA. Setiap titik mewakili satu sampel, dan warnanya menunjukkan kelas masing-masing. Pada data asli, terlihat beberapa kelas memiliki sangat sedikit sampel sehingga titiknya jarang dan distribusinya tidak merata. Kondisi ini dapat membuat model sulit mengenali kelas minoritas. Setelah dilakukan SMOTE, jumlah sampel di kelas-kelas minoritas ditambah dengan membuat titik-titik sintetis. Akibatnya, distribusi antar kelas menjadi lebih seimbang, sehingga model bisa belajar dari semua kelas dengan lebih baik, tanpa kehilangan pola asli data. Scatter plot ini membantu memvisualisasikan perbedaan distribusi sebelum dan sesudah penyeimbangan, serta memastikan bahwa data siap untuk proses pemodelan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1347,7 +1312,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="adasyn">
-<h2>ADASYN<a class="headerlink" href="#adasyn" title="Link to this heading">#</a></h2>
+<h3>ADASYN<a class="headerlink" href="#adasyn" title="Link to this heading">#</a></h3>
 <p>Pada percobaan menggunakan ADASYN untuk menyeimbangkan dataset Ecoli, muncul error karena metode ini tidak menemukan tetangga dari kelas mayoritas untuk beberapa sampel minoritas. ADASYN bekerja dengan membuat sampel sintetis berdasarkan jarak ke tetangga mayoritas, sehingga jika jumlah sampel minoritas terlalu sedikit atau terlalu terisolasi, proses ini gagal. Dataset Ecoli memiliki banyak kelas minoritas dengan jumlah sampel sangat sedikit, membuat ADASYN tidak bisa menghasilkan data baru dengan benar. Sebagai solusi, metode SMOTE lebih cocok digunakan karena hanya membutuhkan tetangga dari kelas minoritas itu sendiri untuk membuat sampel sintetis, sehingga lebih stabil untuk dataset dengan distribusi kelas yang tidak seimbang dan jumlah sampel minoritas yang kecil.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1436,6 +1401,7 @@ Name: count, dtype: int64
 </div>
 </div>
 </section>
+</section>
 <section id="referensi">
 <h2>Referensi<a class="headerlink" href="#referensi" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://p3mpi.uma.ac.id/2024/03/08/memahami-teknik-oversampling-minoritas-sintetik-smote/">https://p3mpi.uma.ac.id/2024/03/08/memahami-teknik-oversampling-minoritas-sintetik-smote/</a>
@@ -1506,15 +1472,15 @@ Name: count, dtype: int64
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menginstall-library">Menginstall Library</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data">Membaca Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-data">Encoding Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi">Perbandingan Data Sebelum dan Sesudah Standarisasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-dengan-min-max-scaler">Normalisasi Data dengan Min-Max Scaler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pca">Implementasi PCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-data">Encoding Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi">Perbandingan Data Sebelum dan Sesudah Standarisasi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-dengan-min-max-scaler">Normalisasi Data dengan Min-Max Scaler</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pca">Implementasi PCA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referensi">Referensi</a></li>
 </ul>
   </nav></div>
