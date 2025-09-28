@@ -1,0 +1,1081 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>EKSPLORASI DATA &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas3';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="OUTLIER" href="tugas4.html" />
+    <link rel="prev" title="DATA UNDERSTANDING" href="tugas2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to My Jupyter Web
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tugas1.html">BUSINESS UNDERSTANDING</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="tugas2.html">DATA UNDERSTANDING</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">EKSPLORASI DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tugas4.html">OUTLIER</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas5.html">DATA PREPROCESSING</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas6.html">Menginstall Library</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tugas3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>EKSPLORASI DATA</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nilai-minimum-dan-maksimum-dari-setiap-kolom">1. Nilai minimum dan maksimum dari setiap kolom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grafik-minimum">Grafik Minimum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grafik-maksimum">Grafik Maksimum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grafik-average">2. Grafik Average</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transform-data">3. Transform Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sepal-pada-database-postgres-pgadmin">Data Sepal Pada Database Postgres (PgAdmin)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-petal-pada-database-mysql-workbench">Data Petal Pada Database MySQL Workbench</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-transform-manual">Proses Transform Manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-transform-dengan-script-python">Proses Transform dengan Script Python</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="eksplorasi-data">
+<h1>EKSPLORASI DATA<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h1>
+<p>Sebelum melakukan analisis lebih lanjut, langkah awal yang AKAN dilakukan adalah eksplorasi data pada dataset iris. Dataset ini berisi informasi tentang karakteristik bunga iris yang jumlahnya ada sebanyak 150 data dan terdiri dari empat atribut utama, yaitu sepal length, sepal width, petal length, dan petal width, serta satu atribut kelas yaitu species yang menunjukkan jenis bunga (Iris-setosa, Iris-versicolor, dan Iris-virginica).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;IRIS.csv&quot;</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>   
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.width&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>   
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;IRIS.csv&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>   
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dalam tahap eksplorasi data ada beberapa hal penting yang harus dipehatikan, yaitu sebagai berikut:</p>
+<section id="nilai-minimum-dan-maksimum-dari-setiap-kolom">
+<h2>1. Nilai minimum dan maksimum dari setiap kolom<a class="headerlink" href="#nilai-minimum-dan-maksimum-dari-setiap-kolom" title="Link to this heading">#</a></h2>
+<p>Pada tahap awal eksplorasi ini saya akan menunjukkan nilai minimun dan maksimum dari keempat kolom pada dataset tersebut dalam bentuk diagram batang. Tujuannya adalah untuk mengetahui rentang data atau batas bawah dan batas atas dari ukuran bunga iris. Dengan cara ini, dapat diketahui seberapa kecil dan seberapa besar ukuran tiap atribut bunga.</p>
+<section id="grafik-minimum">
+<h3>Grafik Minimum<a class="headerlink" href="#grafik-minimum" title="Link to this heading">#</a></h3>
+<p><img alt="Grafik Minimum" src="_images/min.png" /></p>
+<ul class="simple">
+<li><p>Batang biru muda (sepal length) paling tinggi, artinya panjang kelopak (sepal length) memiliki nilai minimum yang cukup besar dibanding atribut lain.</p></li>
+<li><p>Batang ungu (sepal width) juga cukup tinggi, menunjukkan bahwa lebar kelopak (sepal width) walau minimum tetap signifikan.</p></li>
+<li><p>Batang oranye (petal width) sangat kecil, berarti lebar petal (petal width) punya nilai minimum yang sangat rendah.</p></li>
+<li><p>Batang biru tua (petal length) di tengah, panjang petal punya nilai minimum lebih kecil dari sepal length, tapi lebih besar dari petal width.</p></li>
+</ul>
+</section>
+<section id="grafik-maksimum">
+<h3>Grafik Maksimum<a class="headerlink" href="#grafik-maksimum" title="Link to this heading">#</a></h3>
+<p><img alt="Grafik Minimum" src="_images/max.png" /></p>
+<ul class="simple">
+<li><p>Batang oranye (sepal length max) adalah yang paling tinggi, menunjukkan bahwa panjang sepal memiliki nilai maksimum tertinggi di antara semua atribut.</p></li>
+<li><p>Batang biru muda (petal length max) juga tinggi, artinya panjang petal juga memiliki nilai maksimum besar, walau sedikit lebih kecil dari sepal length.</p></li>
+<li><p>Btang ungu (sepal width max) ada di tengah, nilai maksimum sepal width tidak sebesar panjang, tapi tetap cukup signifikan.</p></li>
+<li><p>Batang biru tua (petal width max) paling kecil, artinya lebar petal adalah atribut dengan nilai maksimum paling rendah dibanding yang lain.</p></li>
+</ul>
+</section>
+</section>
+<section id="grafik-average">
+<h2>2. Grafik Average<a class="headerlink" href="#grafik-average" title="Link to this heading">#</a></h2>
+<p><img alt="Grafik Minimum" src="_images/average.png" /></p>
+<ul class="simple">
+<li><p>Batang biru tua (sepal width average) paling tinggi, menunjukkan bahwa rata-rata lebar sepal lebih besar dibandingkan atribut lain.</p></li>
+<li><p>Batang ungu (petal length average) berada di urutan kedua, artinya rata-rata panjang petal cukup signifikan, tapi masih di bawah rata-rata sepal width.</p></li>
+<li><p>Batang biru muda (sepal length average) ada di tengah bawah, panjang sepal rata-ratanya tidak sebesar lebar sepal maupun panjang petal.</p></li>
+<li><p>Batang oranye (petal width average) paling rendah, artinya rata-rata lebar petal adalah atribut terkecil di dataset.</p></li>
+</ul>
+</section>
+<section id="transform-data">
+<h2>3. Transform Data<a class="headerlink" href="#transform-data" title="Link to this heading">#</a></h2>
+<p>Setelah menentukan nilai minimal, maksimum, average menggunakan script python dan juga menggunakan power bi yang berasal dari satu sumber saja. Sekarang saya akan melakukan transform data yaitu menggabungkan kolom-kolom pada dataset iris seperti ini. Bedanya, dataset nya ada di dua sumber database yang berbeda, dengan kolom yang dipisah menjadi 2, yaitu sepal dan petal.</p>
+<p>Dataset IRIS.csv ini sudah saya pecah menjadi 2 data dan akan saya letakkan di 2 database yang berbeda. Berikut saya jelaskan Rinciannya:</p>
+<section id="data-sepal-pada-database-postgres-pgadmin">
+<h3>Data Sepal Pada Database Postgres (PgAdmin)<a class="headerlink" href="#data-sepal-pada-database-postgres-pgadmin" title="Link to this heading">#</a></h3>
+<p>Data sepal yang terdiri dari Sepal Length, Sepal Width, Class (species), dan ada tambahan id untuk mempermudah penggabungan ini saya masukkan ke database Postgrees dengan nama iris_db dan nama tabel nya adalah sepal. Jumlah data masih sama, yaitu 150 data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;sepal.csv&quot;</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>   
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.width&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>   
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      id            Class  sepal length  sepal width
+0      1      Iris-setosa           5.1          3.5
+1      2      Iris-setosa           4.9          3.0
+2      3      Iris-setosa           4.7          3.2
+3      4      Iris-setosa           4.6          3.1
+4      5      Iris-setosa           5.0          3.6
+5      6      Iris-setosa           5.4          3.9
+6      7      Iris-setosa           4.6          3.4
+7      8      Iris-setosa           5.0          3.4
+8      9      Iris-setosa           4.4          2.9
+9     10      Iris-setosa           4.9          3.1
+10    11      Iris-setosa           5.4          3.7
+11    12      Iris-setosa           4.8          3.4
+12    13      Iris-setosa           4.8          3.0
+13    14      Iris-setosa           4.3          3.0
+14    15      Iris-setosa           5.8          4.0
+15    16      Iris-setosa           5.7          4.4
+16    17      Iris-setosa           5.4          3.9
+17    18      Iris-setosa           5.1          3.5
+18    19      Iris-setosa           5.7          3.8
+19    20      Iris-setosa           5.1          3.8
+20    21      Iris-setosa           5.4          3.4
+21    22      Iris-setosa           5.1          3.7
+22    23      Iris-setosa           4.6          3.6
+23    24      Iris-setosa           5.1          3.3
+24    25      Iris-setosa           4.8          3.4
+25    26      Iris-setosa           5.0          3.0
+26    27      Iris-setosa           5.0          3.4
+27    28      Iris-setosa           5.2          3.5
+28    29      Iris-setosa           5.2          3.4
+29    30      Iris-setosa           4.7          3.2
+30    31      Iris-setosa           4.8          3.1
+31    32      Iris-setosa           5.4          3.4
+32    33      Iris-setosa           5.2          4.1
+33    34      Iris-setosa           5.5          4.2
+34    35      Iris-setosa           4.9          3.1
+35    36      Iris-setosa           5.0          3.2
+36    37      Iris-setosa           5.5          3.5
+37    38      Iris-setosa           4.9          3.1
+38    39      Iris-setosa           4.4          3.0
+39    40      Iris-setosa           5.1          3.4
+40    41      Iris-setosa           5.0          3.5
+41    42      Iris-setosa           4.5          2.3
+42    43      Iris-setosa           4.4          3.2
+43    44      Iris-setosa           5.0          3.5
+44    45      Iris-setosa           5.1          3.8
+45    46      Iris-setosa           4.8          3.0
+46    47      Iris-setosa           5.1          3.8
+47    48      Iris-setosa           4.6          3.2
+48    49      Iris-setosa           5.3          3.7
+49    50      Iris-setosa           5.0          3.3
+50    51  Iris-versicolor           7.0          3.2
+51    52  Iris-versicolor           6.4          3.2
+52    53  Iris-versicolor           6.9          3.1
+53    54  Iris-versicolor           5.5          2.3
+54    55  Iris-versicolor           6.5          2.8
+55    56  Iris-versicolor           5.7          2.8
+56    57  Iris-versicolor           6.3          3.3
+57    58  Iris-versicolor           4.9          2.4
+58    59  Iris-versicolor           6.6          2.9
+59    60  Iris-versicolor           5.2          2.7
+60    61  Iris-versicolor           5.0          2.0
+61    62  Iris-versicolor           5.9          3.0
+62    63  Iris-versicolor           6.0          2.2
+63    64  Iris-versicolor           6.1          2.9
+64    65  Iris-versicolor           5.6          2.9
+65    66  Iris-versicolor           6.7          3.1
+66    67  Iris-versicolor           5.6          3.0
+67    68  Iris-versicolor           5.8          2.7
+68    69  Iris-versicolor           6.2          2.2
+69    70  Iris-versicolor           5.6          2.5
+70    71  Iris-versicolor           5.9          3.2
+71    72  Iris-versicolor           6.1          2.8
+72    73  Iris-versicolor           6.3          2.5
+73    74  Iris-versicolor           6.1          2.8
+74    75  Iris-versicolor           6.4          2.9
+75    76  Iris-versicolor           6.6          3.0
+76    77  Iris-versicolor           6.8          2.8
+77    78  Iris-versicolor           6.7          3.0
+78    79  Iris-versicolor           6.0          2.9
+79    80  Iris-versicolor           5.7          2.6
+80    81  Iris-versicolor           5.5          2.4
+81    82  Iris-versicolor           5.5          2.4
+82    83  Iris-versicolor           5.8          2.7
+83    84  Iris-versicolor           6.0          2.7
+84    85  Iris-versicolor           5.4          3.0
+85    86  Iris-versicolor           6.0          3.4
+86    87  Iris-versicolor           6.7          3.1
+87    88  Iris-versicolor           6.3          2.3
+88    89  Iris-versicolor           5.6          3.0
+89    90  Iris-versicolor           5.5          2.5
+90    91  Iris-versicolor           5.5          2.6
+91    92  Iris-versicolor           6.1          3.0
+92    93  Iris-versicolor           5.8          2.6
+93    94  Iris-versicolor           5.0          2.3
+94    95  Iris-versicolor           5.6          2.7
+95    96  Iris-versicolor           5.7          3.0
+96    97  Iris-versicolor           5.7          2.9
+97    98  Iris-versicolor           6.2          2.9
+98    99  Iris-versicolor           5.1          2.5
+99   100  Iris-versicolor           5.7          2.8
+100  101   Iris-virginica           6.3          3.3
+101  102   Iris-virginica           5.8          2.7
+102  103   Iris-virginica           7.1          3.0
+103  104   Iris-virginica           6.3          2.9
+104  105   Iris-virginica           6.5          3.0
+105  106   Iris-virginica           7.6          3.0
+106  107   Iris-virginica           4.9          2.5
+107  108   Iris-virginica           7.3          2.9
+108  109   Iris-virginica           6.7          2.5
+109  110   Iris-virginica           7.2          3.6
+110  111   Iris-virginica           6.5          3.2
+111  112   Iris-virginica           6.4          2.7
+112  113   Iris-virginica           6.8          3.0
+113  114   Iris-virginica           5.7          2.5
+114  115   Iris-virginica           5.8          2.8
+115  116   Iris-virginica           6.4          3.2
+116  117   Iris-virginica           6.5          3.0
+117  118   Iris-virginica           7.7          3.8
+118  119   Iris-virginica           7.7          2.6
+119  120   Iris-virginica           6.0          2.2
+120  121   Iris-virginica           6.9          3.2
+121  122   Iris-virginica           5.6          2.8
+122  123   Iris-virginica           7.7          2.8
+123  124   Iris-virginica           6.3          2.7
+124  125   Iris-virginica           6.7          3.3
+125  126   Iris-virginica           7.2          3.2
+126  127   Iris-virginica           6.2          2.8
+127  128   Iris-virginica           6.1          3.0
+128  129   Iris-virginica           6.4          2.8
+129  130   Iris-virginica           7.2          3.0
+130  131   Iris-virginica           7.4          2.8
+131  132   Iris-virginica           7.9          3.8
+132  133   Iris-virginica           6.4          2.8
+133  134   Iris-virginica           6.3          2.8
+134  135   Iris-virginica           6.1          2.6
+135  136   Iris-virginica           7.7          3.0
+136  137   Iris-virginica           6.3          3.4
+137  138   Iris-virginica           6.4          3.1
+138  139   Iris-virginica           6.0          3.0
+139  140   Iris-virginica           6.9          3.1
+140  141   Iris-virginica           6.7          3.1
+141  142   Iris-virginica           6.9          3.1
+142  143   Iris-virginica           5.8          2.7
+143  144   Iris-virginica           6.8          3.2
+144  145   Iris-virginica           6.7          3.3
+145  146   Iris-virginica           6.7          3.0
+146  147   Iris-virginica           6.3          2.5
+147  148   Iris-virginica           6.5          3.0
+148  149   Iris-virginica           6.2          3.4
+149  150   Iris-virginica           5.9          3.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-petal-pada-database-mysql-workbench">
+<h3>Data Petal Pada Database MySQL Workbench<a class="headerlink" href="#data-petal-pada-database-mysql-workbench" title="Link to this heading">#</a></h3>
+<p>Data petal yang ada dalam database workbench ini hanya terdiri dari dua kolom, yaitu petal length dan petal width saja. Nantinya saat proses transform maka data ini akan ditambahkan kolom yang menjadi kunci penggabungan. Data ini disimpan ke dalam database db_iris dengan nama tabel iris2. Jumlah data juga sama dengan sepal, yaitu 150 data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;petal.csv&quot;</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>   
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.width&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>   
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      id            Class  petal length  petal width
+0      1      Iris-setosa           1.4          0.2
+1      2      Iris-setosa           1.4          0.2
+2      3      Iris-setosa           1.3          0.2
+3      4      Iris-setosa           1.5          0.2
+4      5      Iris-setosa           1.4          0.2
+5      6      Iris-setosa           1.7          0.4
+6      7      Iris-setosa           1.4          0.3
+7      8      Iris-setosa           1.5          0.2
+8      9      Iris-setosa           1.4          0.2
+9     10      Iris-setosa           1.5          0.1
+10    11      Iris-setosa           1.5          0.2
+11    12      Iris-setosa           1.6          0.2
+12    13      Iris-setosa           1.4          0.1
+13    14      Iris-setosa           1.1          0.1
+14    15      Iris-setosa           1.2          0.2
+15    16      Iris-setosa           1.5          0.4
+16    17      Iris-setosa           1.3          0.4
+17    18      Iris-setosa           1.4          0.3
+18    19      Iris-setosa           1.7          0.3
+19    20      Iris-setosa           1.5          0.3
+20    21      Iris-setosa           1.7          0.2
+21    22      Iris-setosa           1.5          0.4
+22    23      Iris-setosa           1.0          0.2
+23    24      Iris-setosa           1.7          0.5
+24    25      Iris-setosa           1.9          0.2
+25    26      Iris-setosa           1.6          0.2
+26    27      Iris-setosa           1.6          0.4
+27    28      Iris-setosa           1.5          0.2
+28    29      Iris-setosa           1.4          0.2
+29    30      Iris-setosa           1.6          0.2
+30    31      Iris-setosa           1.6          0.2
+31    32      Iris-setosa           1.5          0.4
+32    33      Iris-setosa           1.5          0.1
+33    34      Iris-setosa           1.4          0.2
+34    35      Iris-setosa           1.5          0.1
+35    36      Iris-setosa           1.2          0.2
+36    37      Iris-setosa           1.3          0.2
+37    38      Iris-setosa           1.5          0.1
+38    39      Iris-setosa           1.3          0.2
+39    40      Iris-setosa           1.5          0.2
+40    41      Iris-setosa           1.3          0.3
+41    42      Iris-setosa           1.3          0.3
+42    43      Iris-setosa           1.3          0.2
+43    44      Iris-setosa           1.6          0.6
+44    45      Iris-setosa           1.9          0.4
+45    46      Iris-setosa           1.4          0.3
+46    47      Iris-setosa           1.6          0.2
+47    48      Iris-setosa           1.4          0.2
+48    49      Iris-setosa           1.5          0.2
+49    50      Iris-setosa           1.4          0.2
+50    51  Iris-versicolor           4.7          1.4
+51    52  Iris-versicolor           4.5          1.5
+52    53  Iris-versicolor           4.9          1.5
+53    54  Iris-versicolor           4.0          1.3
+54    55  Iris-versicolor           4.6          1.5
+55    56  Iris-versicolor           4.5          1.3
+56    57  Iris-versicolor           4.7          1.6
+57    58  Iris-versicolor           3.3          1.0
+58    59  Iris-versicolor           4.6          1.3
+59    60  Iris-versicolor           3.9          1.4
+60    61  Iris-versicolor           3.5          1.0
+61    62  Iris-versicolor           4.2          1.5
+62    63  Iris-versicolor           4.0          1.0
+63    64  Iris-versicolor           4.7          1.4
+64    65  Iris-versicolor           3.6          1.3
+65    66  Iris-versicolor           4.4          1.4
+66    67  Iris-versicolor           4.5          1.5
+67    68  Iris-versicolor           4.1          1.0
+68    69  Iris-versicolor           4.5          1.5
+69    70  Iris-versicolor           3.9          1.1
+70    71  Iris-versicolor           4.8          1.8
+71    72  Iris-versicolor           4.0          1.3
+72    73  Iris-versicolor           4.9          1.5
+73    74  Iris-versicolor           4.7          1.2
+74    75  Iris-versicolor           4.3          1.3
+75    76  Iris-versicolor           4.4          1.4
+76    77  Iris-versicolor           4.8          1.4
+77    78  Iris-versicolor           5.0          1.7
+78    79  Iris-versicolor           4.5          1.5
+79    80  Iris-versicolor           3.5          1.0
+80    81  Iris-versicolor           3.8          1.1
+81    82  Iris-versicolor           3.7          1.0
+82    83  Iris-versicolor           3.9          1.2
+83    84  Iris-versicolor           5.1          1.6
+84    85  Iris-versicolor           4.5          1.5
+85    86  Iris-versicolor           4.5          1.6
+86    87  Iris-versicolor           4.7          1.5
+87    88  Iris-versicolor           4.4          1.3
+88    89  Iris-versicolor           4.1          1.3
+89    90  Iris-versicolor           4.0          1.3
+90    91  Iris-versicolor           4.4          1.2
+91    92  Iris-versicolor           4.6          1.4
+92    93  Iris-versicolor           4.0          1.2
+93    94  Iris-versicolor           3.3          1.0
+94    95  Iris-versicolor           4.2          1.3
+95    96  Iris-versicolor           4.2          1.2
+96    97  Iris-versicolor           4.2          1.3
+97    98  Iris-versicolor           4.3          1.3
+98    99  Iris-versicolor           3.0          1.1
+99   100  Iris-versicolor           4.1          1.3
+100  101   Iris-virginica           6.0          2.5
+101  102   Iris-virginica           5.1          1.9
+102  103   Iris-virginica           5.9          2.1
+103  104   Iris-virginica           5.6          1.8
+104  105   Iris-virginica           5.8          2.2
+105  106   Iris-virginica           6.6          2.1
+106  107   Iris-virginica           4.5          1.7
+107  108   Iris-virginica           6.3          1.8
+108  109   Iris-virginica           5.8          1.8
+109  110   Iris-virginica           6.1          2.5
+110  111   Iris-virginica           5.1          2.0
+111  112   Iris-virginica           5.3          1.9
+112  113   Iris-virginica           5.5          2.1
+113  114   Iris-virginica           5.0          2.0
+114  115   Iris-virginica           5.1          2.4
+115  116   Iris-virginica           5.3          2.3
+116  117   Iris-virginica           5.5          1.8
+117  118   Iris-virginica           6.7          2.2
+118  119   Iris-virginica           6.9          2.3
+119  120   Iris-virginica           5.0          1.5
+120  121   Iris-virginica           5.7          2.3
+121  122   Iris-virginica           4.9          2.0
+122  123   Iris-virginica           6.7          2.0
+123  124   Iris-virginica           4.9          1.8
+124  125   Iris-virginica           5.7          2.1
+125  126   Iris-virginica           6.0          1.8
+126  127   Iris-virginica           4.8          1.8
+127  128   Iris-virginica           4.9          1.8
+128  129   Iris-virginica           5.6          2.1
+129  130   Iris-virginica           5.8          1.6
+130  131   Iris-virginica           6.1          1.9
+131  132   Iris-virginica           6.4          2.0
+132  133   Iris-virginica           5.6          2.2
+133  134   Iris-virginica           5.1          1.5
+134  135   Iris-virginica           5.6          1.4
+135  136   Iris-virginica           6.1          2.3
+136  137   Iris-virginica           5.6          2.4
+137  138   Iris-virginica           5.5          1.8
+138  139   Iris-virginica           4.8          1.8
+139  140   Iris-virginica           5.4          2.1
+140  141   Iris-virginica           5.6          2.4
+141  142   Iris-virginica           5.1          2.3
+142  143   Iris-virginica           5.1          1.9
+143  144   Iris-virginica           5.9          2.3
+144  145   Iris-virginica           5.7          2.5
+145  146   Iris-virginica           5.2          2.3
+146  147   Iris-virginica           5.0          1.9
+147  148   Iris-virginica           5.2          2.0
+148  149   Iris-virginica           5.4          2.3
+149  150   Iris-virginica           5.1          1.8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="proses-transform-manual">
+<h2>Proses Transform Manual<a class="headerlink" href="#proses-transform-manual" title="Link to this heading">#</a></h2>
+<p>Pada proses ini, 2 data yang terpisah dan berasal dari sumber database yang berbeda akan digabungkan menjadi data yang utuh. Berikut ini langkah-langkah nya:</p>
+<ol class="arabic simple">
+<li><p>Masuk ke power bi, dan masukkan data dari dua sumber untuk dibaca oleh power bi, seperti cara diawal. Tampilan data ini telah saya hapus bagian id dan class pada tabel iris2 yang berisi data petal. Sebenarnya tanpa dihapus juga bisa, tapi untuk mempermudah pembacaan maka saya hapus saja, sehingga menyisakan 2 kolom.</p></li>
+</ol>
+<p>Data sepal dari PgAdmin yang dimasukkan ke power bi</p>
+<p><img alt="Grafik Minimum" src="_images/sepal.png" /></p>
+<p>Data petal dari workbench yang dimasukkan ke dalam power bi</p>
+<p><img alt="Grafik Minimum" src="_images/petal.png" /></p>
+<p>Hasil data yang telah dimasukkan ke power bi</p>
+<p><img alt="Grafik Minimum" src="_images/data.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Kemudian, di bagian home pilih menu Transform Data</p></li>
+</ol>
+<p><img alt="Grafik Minimum" src="_images/transform.png" /></p>
+<p>Pada bagian inilah proses Transform data akan dilakukan</p>
+<ol class="arabic simple" start="3">
+<li><p>Setelah memastikan kedua data muncul, maka yang harus dilakukan adalah membuat kunci untuk dapat menggabungkan keduanya, dapat berupa id atau class (species)nya. Dalam kasus saya, karena id dan class di data petal sudah dihapus di database, maka saya harus menambahkan kolom id di data petal. Caranya dengan memilih menu ‘add column’ lalu pilih start indeks nya. karena di sepal dimulai dari 1 maka tambahan kolom juga dimulai dari satu. Barulah data dapat di gabungkan.</p></li>
+<li><p>Lalu, pilih opsi Merge Query yang ada di menu paling kanan. Disana nanti akan muncul data sepal sebagai data pertama yang akan digabungkan. Kemudian pilih data kedua yang akan digabungkan, yaitu data petal. Jangan lupa klik kolom id di data sepal dan kolom indeks di data petal. Lalu, pilih digabungkan ke dalam (merge inner only). Baru klik ok, setelah itu kita boleh langsung klik tanda x untuk keluar nanti akan ada pilihan untuk apply. Maka proses transform bisa selesai.</p></li>
+<li><p>Cek bagian awal tampilan power bi, di sidebar data akan muncul data sepal yang sudah lengkap dengan data petal yang telah digabung tadi. Jangan khawatir jika data petal yang lama masih ada disana. Kalian bisa menghapus manual, karena power bi tidak secara otomatis menghapus data lama nya.</p></li>
+</ol>
+<p><img alt="Grafik Minimum" src="_images/datahasiltransform.png" /></p>
+<p><img alt="Grafik Minimum" src="_images/hapusdatalama.png" /></p>
+<p>Terakhir, saya tampilkan semua data hasil penggabungan yang sudah dikelompokkan ke dalam 3 class yang ada</p>
+<p><img alt="Grafik Minimum" src="_images/semua.png" /></p>
+</section>
+<section id="proses-transform-dengan-script-python">
+<h2>Proses Transform dengan Script Python<a class="headerlink" href="#proses-transform-dengan-script-python" title="Link to this heading">#</a></h2>
+<p>Script Python ini bisa kalian masukkan ke menu script python yang ada di power bi juga. Isinya mulai dari password, nama database dan port dapat disesuaikan dengan database yang kalian gunakan. Karena disini saya menggunakan PgAdmin dan MySQL Workbench jadi ketentuan nya terlihat pada script di bawal ini</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pymysql</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">psycopg2</span>
+
+<span class="n">mysql_conn</span> <span class="o">=</span> <span class="n">pymysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;sk25&quot;</span><span class="p">,</span>   
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;db_iris&quot;</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">3306</span>
+<span class="p">)</span>
+
+<span class="n">petal</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM petal&quot;</span><span class="p">,</span> <span class="n">mysql_conn</span><span class="p">)</span>
+
+<span class="n">pg_conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span>  
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;sk25_&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;iris_db&quot;</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">5432</span>
+<span class="p">)</span>
+
+<span class="n">sepal</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM sepal&quot;</span><span class="p">,</span> <span class="n">pg_conn</span><span class="p">)</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">petal</span><span class="p">,</span> <span class="n">sepal</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">iris</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Selain menggunakan script python di power bi, kita juga dapat menggunakan script python biasa yang diaplikasikan ke collab notebook, jupyter notebook dan sebagainya. Contohnya seperti di bawah ini:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">sepal</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;sepal.csv&quot;</span><span class="p">)</span>
+<span class="n">petal</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;petal.csv&quot;</span><span class="p">)</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">sepal</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                  <span class="n">petal</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   id        Class  sepal length  sepal width  id        Class  petal length  \
+0   1  Iris-setosa           5.1          3.5   1  Iris-setosa           1.4   
+1   2  Iris-setosa           4.9          3.0   2  Iris-setosa           1.4   
+2   3  Iris-setosa           4.7          3.2   3  Iris-setosa           1.3   
+3   4  Iris-setosa           4.6          3.1   4  Iris-setosa           1.5   
+4   5  Iris-setosa           5.0          3.6   5  Iris-setosa           1.4   
+
+   petal width  
+0          0.2  
+1          0.2  
+2          0.2  
+3          0.2  
+4          0.2  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Agar dataset terlihat utuh seperti sebelumnya, maka kita perlu menghapus kolom id dan class yang ada di petal.csv tadi menggunakan script di bawah ini:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="o">~</span><span class="n">iris</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   sepal length  sepal width  petal length  petal width
+0           5.1          3.5           1.4          0.2
+1           4.9          3.0           1.4          0.2
+2           4.7          3.2           1.3          0.2
+3           4.6          3.1           1.5          0.2
+4           5.0          3.6           1.4          0.2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tugas2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">DATA UNDERSTANDING</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tugas4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">OUTLIER</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nilai-minimum-dan-maksimum-dari-setiap-kolom">1. Nilai minimum dan maksimum dari setiap kolom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grafik-minimum">Grafik Minimum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grafik-maksimum">Grafik Maksimum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grafik-average">2. Grafik Average</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transform-data">3. Transform Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sepal-pada-database-postgres-pgadmin">Data Sepal Pada Database Postgres (PgAdmin)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-petal-pada-database-mysql-workbench">Data Petal Pada Database MySQL Workbench</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-transform-manual">Proses Transform Manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-transform-dengan-script-python">Proses Transform dengan Script Python</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
