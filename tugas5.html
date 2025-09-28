@@ -1,0 +1,1128 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DATA PREPROCESSING &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas5';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Menginstall Library" href="tugas6.html" />
+    <link rel="prev" title="OUTLIER" href="tugas4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to My Jupyter Web
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tugas1.html">BUSINESS UNDERSTANDING</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tugas2.html">DATA UNDERSTANDING</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tugas3.html">EKSPLORASI DATA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tugas4.html">OUTLIER</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">DATA PREPROCESSING</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas6.html">Menginstall Library</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tugas5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DATA PREPROCESSING</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembacaan-data-dari-data-understanding">Pembacaan Data dari Data Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-pycaret-untuk-anomaly-detection">Setup pycaret untuk Anomaly Detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-dengan-metode-abod-angle-based-outlier-detection">Deteksi Outlier dengan Metode ABOD (Angle-Based Outlier Detection)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-dengan-metode-knn-k-nearest-neighbors">Deteksi Outlier dengan Metode KNN (K-Nearest Neighbors)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-dengan-metode-lof-local-outlier-factor">Deteksi Outlier dengan Metode LOF (Local Outlier Factor)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot-jumlah-outlier-per-metode">Bar Plot Jumlah Outlier per Metode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-preprocessing">
+<h1>DATA PREPROCESSING<a class="headerlink" href="#data-preprocessing" title="Link to this heading">#</a></h1>
+<p>Pertama, yang harus dilakukan adalah menginstal library pycaret untuk mempermudah dala proses penghapusan outlier. Selain pycaret, kalian juga bisa menginstal library pyod. library ini fungsi nya hampir sama dengan pycaret, hanya saja code yang menggunakan pycaret akan olebih rigkas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pycaret</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pycaret
+  Downloading pycaret-3.3.2-py3-none-any.whl (486 kB)
+     -------------------------------------- 486.1/486.1 KB 3.4 MB/s eta 0:00:00
+Collecting ipywidgets&gt;=7.6.5
+  Downloading ipywidgets-8.1.7-py3-none-any.whl (139 kB)
+     -------------------------------------- 139.8/139.8 KB 8.6 MB/s eta 0:00:00
+Requirement already satisfied: nbformat&gt;=4.2.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pycaret) (5.10.4)
+Collecting pmdarima&gt;=2.0.4
+  Downloading pmdarima-2.0.4-cp39-cp39-win_amd64.whl (614 kB)
+     -------------------------------------- 615.0/615.0 KB 6.4 MB/s eta 0:00:00
+Collecting lightgbm&gt;=3.0.0
+  Downloading lightgbm-4.6.0-py3-none-win_amd64.whl (1.5 MB)
+     ---------------------------------------- 1.5/1.5 MB 10.3 MB/s eta 0:00:00
+Requirement already satisfied: ipython&gt;=5.5.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pycaret) (8.18.1)
+Requirement already satisfied: jinja2&gt;=3 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pycaret) (3.1.6)
+Requirement already satisfied: markupsafe&gt;=2.0.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pycaret) (3.0.3)
+Collecting yellowbrick&gt;=1.4
+  Downloading yellowbrick-1.5-py3-none-any.whl (282 kB)
+     -------------------------------------- 282.6/282.6 KB 8.8 MB/s eta 0:00:00
+Collecting pandas&lt;2.2.0
+  Downloading pandas-2.1.4-cp39-cp39-win_amd64.whl (10.8 MB)
+     ---------------------------------------- 10.8/10.8 MB 4.7 MB/s eta 0:00:00
+Collecting tqdm&gt;=4.62.0
+  Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+     ---------------------------------------- 78.5/78.5 KB 4.6 MB/s eta 0:00:00
+Requirement already satisfied: psutil&gt;=5.9.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pycaret) (7.1.0)
+Collecting xxhash
+  Downloading xxhash-3.5.0-cp39-cp39-win_amd64.whl (30 kB)
+Collecting plotly-resampler&gt;=0.8.3.1
+  Downloading plotly_resampler-0.11.0-py3-none-any.whl (82 kB)
+     ---------------------------------------- 82.7/82.7 KB 1.5 MB/s eta 0:00:00
+Collecting sktime==0.26.0
+  Downloading sktime-0.26.0-py3-none-any.whl (21.8 MB)
+     ---------------------------------------- 21.8/21.8 MB 6.5 MB/s eta 0:00:00
+Collecting pyod&gt;=1.1.3
+  Downloading pyod-2.0.5-py3-none-any.whl (200 kB)
+     -------------------------------------- 200.6/200.6 KB 2.4 MB/s eta 0:00:00
+Collecting cloudpickle
+  Downloading cloudpickle-3.1.1-py3-none-any.whl (20 kB)
+Collecting imbalanced-learn&gt;=0.12.0
+  Downloading imbalanced_learn-0.12.4-py3-none-any.whl (258 kB)
+     -------------------------------------- 258.3/258.3 KB 2.0 MB/s eta 0:00:00
+Collecting joblib&lt;1.4,&gt;=1.2.0
+  Downloading joblib-1.3.2-py3-none-any.whl (302 kB)
+     -------------------------------------- 302.2/302.2 KB 2.7 MB/s eta 0:00:00
+Collecting scikit-plot&gt;=0.3.7
+  Downloading scikit_plot-0.3.7-py3-none-any.whl (33 kB)
+Collecting deprecation&gt;=2.1.0
+  Downloading deprecation-2.1.0-py2.py3-none-any.whl (11 kB)
+Collecting numpy&lt;1.27,&gt;=1.21
+  Downloading numpy-1.26.4-cp39-cp39-win_amd64.whl (15.8 MB)
+     ---------------------------------------- 15.8/15.8 MB 4.0 MB/s eta 0:00:00
+Collecting scikit-learn&gt;1.4.0
+  Downloading scikit_learn-1.6.1-cp39-cp39-win_amd64.whl (11.2 MB)
+     ---------------------------------------- 11.2/11.2 MB 2.9 MB/s eta 0:00:00
+Collecting scipy&lt;=1.11.4,&gt;=1.6.1
+  Downloading scipy-1.11.4-cp39-cp39-win_amd64.whl (44.3 MB)
+     ---------------------------------------- 44.3/44.3 MB 6.3 MB/s eta 0:00:00
+Requirement already satisfied: requests&gt;=2.27.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pycaret) (2.32.5)
+Collecting category-encoders&gt;=2.4.0
+  Downloading category_encoders-2.6.4-py2.py3-none-any.whl (82 kB)
+     ---------------------------------------- 82.0/82.0 KB 4.5 MB/s eta 0:00:00
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<section id="pembacaan-data-dari-data-understanding">
+<h2>Pembacaan Data dari Data Understanding<a class="headerlink" href="#pembacaan-data-dari-data-understanding" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;IRIS.csv&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s1">&#39;Class&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">])</span>
+
+<span class="n">numerical_features</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s1">&#39;int64&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">numerical_features</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="setup-pycaret-untuk-anomaly-detection">
+<h2>Setup pycaret untuk Anomaly Detection<a class="headerlink" href="#setup-pycaret-untuk-anomaly-detection" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pycaret.anomaly</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">exp_ano</span> <span class="o">=</span> <span class="n">setup</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+    <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>   
+    <span class="n">session_id</span><span class="o">=</span><span class="mi">123</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_a5ea2_row4_col1, #T_a5ea2_row8_col1 {
+  background-color: lightgreen;
+}
+</style>
+<table id="T_a5ea2">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_a5ea2_level0_col0" class="col_heading level0 col0" >Description</th>
+      <th id="T_a5ea2_level0_col1" class="col_heading level0 col1" >Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_a5ea2_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_a5ea2_row0_col0" class="data row0 col0" >Session id</td>
+      <td id="T_a5ea2_row0_col1" class="data row0 col1" >123</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_a5ea2_row1_col0" class="data row1 col0" >Original data shape</td>
+      <td id="T_a5ea2_row1_col1" class="data row1 col1" >(150, 4)</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_a5ea2_row2_col0" class="data row2 col0" >Transformed data shape</td>
+      <td id="T_a5ea2_row2_col1" class="data row2 col1" >(150, 4)</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_a5ea2_row3_col0" class="data row3 col0" >Numeric features</td>
+      <td id="T_a5ea2_row3_col1" class="data row3 col1" >4</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_a5ea2_row4_col0" class="data row4 col0" >Preprocess</td>
+      <td id="T_a5ea2_row4_col1" class="data row4 col1" >True</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_a5ea2_row5_col0" class="data row5 col0" >Imputation type</td>
+      <td id="T_a5ea2_row5_col1" class="data row5 col1" >simple</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_a5ea2_row6_col0" class="data row6 col0" >Numeric imputation</td>
+      <td id="T_a5ea2_row6_col1" class="data row6 col1" >mean</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_a5ea2_row7_col0" class="data row7 col0" >Categorical imputation</td>
+      <td id="T_a5ea2_row7_col1" class="data row7 col1" >mode</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_a5ea2_row8_col0" class="data row8 col0" >Normalize</td>
+      <td id="T_a5ea2_row8_col1" class="data row8 col1" >True</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_a5ea2_row9_col0" class="data row9 col0" >Normalize method</td>
+      <td id="T_a5ea2_row9_col1" class="data row9 col1" >zscore</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row10" class="row_heading level0 row10" >10</th>
+      <td id="T_a5ea2_row10_col0" class="data row10 col0" >CPU Jobs</td>
+      <td id="T_a5ea2_row10_col1" class="data row10 col1" >-1</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row11" class="row_heading level0 row11" >11</th>
+      <td id="T_a5ea2_row11_col0" class="data row11 col0" >Use GPU</td>
+      <td id="T_a5ea2_row11_col1" class="data row11 col1" >False</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row12" class="row_heading level0 row12" >12</th>
+      <td id="T_a5ea2_row12_col0" class="data row12 col0" >Log Experiment</td>
+      <td id="T_a5ea2_row12_col1" class="data row12 col1" >False</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row13" class="row_heading level0 row13" >13</th>
+      <td id="T_a5ea2_row13_col0" class="data row13 col0" >Experiment Name</td>
+      <td id="T_a5ea2_row13_col1" class="data row13 col1" >anomaly-default-name</td>
+    </tr>
+    <tr>
+      <th id="T_a5ea2_level0_row14" class="row_heading level0 row14" >14</th>
+      <td id="T_a5ea2_row14_col0" class="data row14 col0" >USI</td>
+      <td id="T_a5ea2_row14_col1" class="data row14 col1" >4432</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="deteksi-outlier-dengan-metode-abod-angle-based-outlier-detection">
+<h2>Deteksi Outlier dengan Metode ABOD (Angle-Based Outlier Detection)<a class="headerlink" href="#deteksi-outlier-dengan-metode-abod-angle-based-outlier-detection" title="Link to this heading">#</a></h2>
+<p>Pada bagian ini, saya akan menggunakan metode ABOD untuk mencari outlier pada dataset Iris. ABOD bekerja dengan melihat sudut antara titik-titik data. Data yang jauh dari kelompok utama atau “sendiri” akan punya pola sudut berbeda dibanding data normal. Metode ini memperhitungkan hubungan antar fitur, jadi cocok untuk dataset dengan banyak kolom (multidimensi).</p>
+<p>Di kode, akan dibuat model ABOD dengan create_model(‘abod’), lalu menambahkan hasil deteksi ke dataset asli dengan assign_model(). Kemudian akan muncul kolom baru Anomaly, di mana 0 artinya data normal dan 1 artinya data outlier. Dataset kemudian dipisah menjadi dua bagian: data normal dan data outlier, supaya dapat menganalisis keduanya dengan lebih mudah. Hasil ini akan membantu untuk melihat sebaran outlier dan mempersiapkan data agar lebih bersih sebelum digunakan untuk tahap preprocessing atau pembuatan model, sehingga hasil model nanti lebih baik dan tidak terpengaruh data ekstrem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pycaret.anomaly</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_model</span><span class="p">,</span> <span class="n">assign_model</span>
+
+<span class="n">abod_model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="s1">&#39;abod&#39;</span><span class="p">)</span>
+
+<span class="n">abod_results</span> <span class="o">=</span> <span class="n">assign_model</span><span class="p">(</span><span class="n">abod_model</span><span class="p">)</span>
+
+<span class="n">abod_normal</span> <span class="o">=</span> <span class="n">abod_results</span><span class="p">[</span><span class="n">abod_results</span><span class="p">[</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">abod_outlier</span> <span class="o">=</span> <span class="n">abod_results</span><span class="p">[</span><span class="n">abod_results</span><span class="p">[</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ABOD Outlier Count:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">abod_outlier</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">abod_results</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"></div><div class="output text_html"></div><div class="output text_html"></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ABOD Outlier Count: 8
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>Anomaly</th>
+      <th>Anomaly_Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>-196.653411</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>-94.957084</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>-59.887881</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>-75.114571</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>-35.818025</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">abod_results</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">numerical_features</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+    <span class="n">y</span><span class="o">=</span><span class="n">numerical_features</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">},</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;ABOD: Outlier Detection&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a51982a83dcfe974185faf0479ecacf4d4a1ae5468e5f77d9340fbf803d8dc31.png" src="_images/a51982a83dcfe974185faf0479ecacf4d4a1ae5468e5f77d9340fbf803d8dc31.png" />
+</div>
+</div>
+</section>
+<section id="deteksi-outlier-dengan-metode-knn-k-nearest-neighbors">
+<h2>Deteksi Outlier dengan Metode KNN (K-Nearest Neighbors)<a class="headerlink" href="#deteksi-outlier-dengan-metode-knn-k-nearest-neighbors" title="Link to this heading">#</a></h2>
+<p>Di bagian ini, saya akan menggunakan metode KNN untuk mendeteksi outlier pada dataset Iris. KNN menilai setiap titik data berdasarkan jarak ke tetangga terdekatnya, sehingga data yang jauh dari titik-titik lain dianggap outlier. Dengan kode create_model(‘knn’) dan assign_model(), kolom Anomaly ditambahkan ke dataset, di mana 0 menandakan data normal dan 1 menandakan outlier. Dataset kemudian dipisah menjadi data normal dan outlier, sehingga bisa menganalisis jumlah outlier dan data normal secara terpisah, serta memastikan data ekstrem tidak memengaruhi analisis atau pemodelan berikutnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="s1">&#39;knn&#39;</span><span class="p">)</span>
+<span class="n">knn_results</span> <span class="o">=</span> <span class="n">assign_model</span><span class="p">(</span><span class="n">knn_model</span><span class="p">)</span>
+
+<span class="n">knn_normal</span> <span class="o">=</span> <span class="n">knn_results</span><span class="p">[</span><span class="n">knn_results</span><span class="p">[</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">knn_outlier</span> <span class="o">=</span> <span class="n">knn_results</span><span class="p">[</span><span class="n">knn_results</span><span class="p">[</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;KNN Outlier Count:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">knn_outlier</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">knn_results</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"></div><div class="output text_html"></div><div class="output text_html"></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNN Outlier Count: 8
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>Anomaly</th>
+      <th>Anomaly_Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>0.261206</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>0.272151</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>0.363503</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>0.353848</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>0.374971</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">knn_results</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">numerical_features</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+    <span class="n">y</span><span class="o">=</span><span class="n">numerical_features</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">},</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;KNN: Outlier Detection&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/515fa91fb8a7e617c460b0295654ae3201d44478f81a35a0e069178f06c3056a.png" src="_images/515fa91fb8a7e617c460b0295654ae3201d44478f81a35a0e069178f06c3056a.png" />
+</div>
+</div>
+</section>
+<section id="deteksi-outlier-dengan-metode-lof-local-outlier-factor">
+<h2>Deteksi Outlier dengan Metode LOF (Local Outlier Factor)<a class="headerlink" href="#deteksi-outlier-dengan-metode-lof-local-outlier-factor" title="Link to this heading">#</a></h2>
+<p>Di bagian ini, saya akan menggunakan metode LOF untuk mendeteksi outlier pada dataset Iris. LOF menilai setiap titik data berdasarkan kepadatan lokal dibandingkan tetangganya, sehingga data yang memiliki kepadatan berbeda dari sekitarnya dianggap outlier. Dengan kode create_model(‘lof’) dan assign_model(), kolom Anomaly ditambahkan ke dataset, di mana 0 menunjukkan data normal dan 1 menunjukkan outlier. Dataset kemudian dipisah menjadi data normal dan outlier, sehingga bisa melihat jumlah outlier dan menganalisis data normal dengan lebih jelas, serta memastikan data ekstrem tidak memengaruhi tahap analisis atau pemodelan berikutnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lof_model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="s1">&#39;lof&#39;</span><span class="p">)</span>
+<span class="n">lof_results</span> <span class="o">=</span> <span class="n">assign_model</span><span class="p">(</span><span class="n">lof_model</span><span class="p">)</span>
+
+<span class="n">lof_normal</span> <span class="o">=</span> <span class="n">lof_results</span><span class="p">[</span><span class="n">lof_results</span><span class="p">[</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">lof_outlier</span> <span class="o">=</span> <span class="n">lof_results</span><span class="p">[</span><span class="n">lof_results</span><span class="p">[</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LOF Outlier Count:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lof_outlier</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">lof_results</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"></div><div class="output text_html"></div><div class="output text_html"></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LOF Outlier Count: 8
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>Anomaly</th>
+      <th>Anomaly_Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>0.987666</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>1.070277</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>0.995533</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>1.048324</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
+      <td>1.006263</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">lof_results</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">numerical_features</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+    <span class="n">y</span><span class="o">=</span><span class="n">numerical_features</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">},</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;LOF: Outlier Detection&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fc0c65ac9b6b094525036e557bddd08a75da4bbcf7515f114f9d5e3735cd4dbc.png" src="_images/fc0c65ac9b6b094525036e557bddd08a75da4bbcf7515f114f9d5e3735cd4dbc.png" />
+</div>
+</div>
+</section>
+<section id="bar-plot-jumlah-outlier-per-metode">
+<h2>Bar Plot Jumlah Outlier per Metode<a class="headerlink" href="#bar-plot-jumlah-outlier-per-metode" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outlier_counts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;ABOD&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">abod_outlier</span><span class="p">),</span>
+    <span class="s1">&#39;KNN&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">knn_outlier</span><span class="p">),</span>
+    <span class="s1">&#39;LOF&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">lof_outlier</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">outlier_counts</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">y</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">outlier_counts</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Jumlah Outlier per Metode PyCaret&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Outlier&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4b6e5d0186c547ec41c9d203c9342840258755a42e92ea10864a3806277cb4f9.png" src="_images/4b6e5d0186c547ec41c9d203c9342840258755a42e92ea10864a3806277cb4f9.png" />
+</div>
+</div>
+</section>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Dari hasil analisis dataset Iris, dapat dimenemukan bahwa terdapat beberapa baris data yang termasuk outlier, yaitu data yang berbeda jauh dari kelompok utama. Metode ABOD, KNN, dan LOF masing-masing mendeteksi outlier dengan cara berbeda: ABOD berdasarkan variansi sudut antar titik, KNN berdasarkan jarak ke tetangga terdekat, dan LOF berdasarkan kepadatan lokal. Visualisasi scatter plot memperlihatkan bahwa outlier cenderung tersebar di beberapa kombinasi fitur, terutama pada fitur petal length dan sepal length, dan jumlah outlier berbeda-beda tergantung metode yang digunakan.</p>
+<p>Deteksi outlier ini penting karena data ekstrem dapat memengaruhi analisis atau performa model yang akan dibangun. Dengan memisahkan data normal dan outlier, kita bisa melakukan preprocessing lebih baik dan menjaga kualitas dataset sebelum digunakan untuk pemodelan lebih lanjut. Hal ini memastikan bahwa model yang dibangun tidak terpengaruh oleh data yang ekstrem, sehingga hasil analisis lebih akurat dan andal.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tugas4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">OUTLIER</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tugas6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Menginstall Library</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembacaan-data-dari-data-understanding">Pembacaan Data dari Data Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-pycaret-untuk-anomaly-detection">Setup pycaret untuk Anomaly Detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-dengan-metode-abod-angle-based-outlier-detection">Deteksi Outlier dengan Metode ABOD (Angle-Based Outlier Detection)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-dengan-metode-knn-k-nearest-neighbors">Deteksi Outlier dengan Metode KNN (K-Nearest Neighbors)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-dengan-metode-lof-local-outlier-factor">Deteksi Outlier dengan Metode LOF (Local Outlier Factor)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot-jumlah-outlier-per-metode">Bar Plot Jumlah Outlier per Metode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
