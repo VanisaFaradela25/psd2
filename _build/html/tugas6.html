@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Menginstall Library &#8212; My sample book</title>
+    <title>PENYEIMBANGAN DATA MENGGUNAKAN SMOTE DAN ADASYN &#8212; My sample book</title>
   
   
   
@@ -186,8 +186,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas5.html">DATA PREPROCESSING</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Menginstall Library</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">PENYEIMBANGAN DATA MENGGUNAKAN SMOTE DAN ADASYN</a></li>
 </ul>
 
     </div>
@@ -373,7 +372,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Menginstall Library</h1>
+    <h1>PENYEIMBANGAN DATA MENGGUNAKAN SMOTE DAN ADASYN</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -383,10 +382,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Menginstall Library</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pentingnya-penyeimbangan-data">Pentingnya Penyeimbangan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-smote">Metode SMOTE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-adasyn">Metode ADASYN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-utama-smote-dan-adasyn">Perbedaan Utama SMOTE dan ADASYN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-penyeimbangan-data">Langkah-Langkah Penyeimbangan Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menginstall-library">Menginstall Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data">Membaca Data</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-data">Encoding Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi">Perbandingan Data Sebelum dan Sesudah Standarisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-dengan-min-max-scaler">Normalisasi Data dengan Min-Max Scaler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pca">Implementasi PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referensi">Referensi</a></li>
+</ul>
             </nav>
         </div>
     </div>
@@ -397,18 +411,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PENYEIMBANGAN DATA MENGGUNAKAN SMOTE DAN ADASYN</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="menginstall-library">
-<h1>Menginstall Library<a class="headerlink" href="#menginstall-library" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="penyeimbangan-data-menggunakan-smote-dan-adasyn">
+<h1>PENYEIMBANGAN DATA MENGGUNAKAN SMOTE DAN ADASYN<a class="headerlink" href="#penyeimbangan-data-menggunakan-smote-dan-adasyn" title="Link to this heading">#</a></h1>
+<section id="pentingnya-penyeimbangan-data">
+<h2>Pentingnya Penyeimbangan Data<a class="headerlink" href="#pentingnya-penyeimbangan-data" title="Link to this heading">#</a></h2>
+<p>Penyeimbangan data adalah langkah penting dalam proses pengolahan data, terutama ketika kita berhadapan dengan dataset yang memiliki distribusi kelas tidak seimbang. Dalam banyak kasus nyata, jumlah sampel dari satu kelas bisa jauh lebih besar dibandingkan kelas lainnya. Kondisi ini menimbulkan masalah serius karena model cenderung bias terhadap kelas mayoritas. Akibatnya, meskipun akurasi terlihat tinggi, performa sebenarnya dalam mengenali kelas minoritas menjadi sangat buruk.</p>
+<p>Dengan melakukan penyeimbangan, misalnya melalui metode SMOTE atau ADASYN, kita memberikan kesempatan bagi model untuk mempelajari pola dari kelas minoritas. Hal ini penting agar model tidak hanya “bermain aman” dengan selalu memprediksi kelas mayoritas, tetapi juga mampu mengenali kelas minoritas dengan baik. Dampaknya, evaluasi model tidak hanya terbatas pada akurasi, tetapi juga meningkat pada metrik lain yang lebih adil, seperti recall, precision, F1-score, atau AUC.</p>
+<p>Penyeimbangan data juga sangat relevan pada aplikasi-aplikasi kritis, seperti deteksi penyakit langka, transaksi fraud, atau sistem keamanan. Dalam kasus ini, meskipun jumlah data minoritas sedikit, keberhasilan dalam mendeteksinya justru jauh lebih penting dibandingkan sekadar memiliki akurasi tinggi. Dengan demikian, penyeimbangan data membantu model untuk lebih adil, tidak mengabaikan kelas yang sebenarnya paling krusial.</p>
 </section>
-<section id="id1">
-<h1><a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="metode-smote">
+<h2>Metode SMOTE<a class="headerlink" href="#metode-smote" title="Link to this heading">#</a></h2>
+<p>Synthetic Minority Over-sampling Technique (SMOTE) adalah salah satu metode yang digunakan untuk menangani masalah ketidakseimbangan kelas dalam data. Pada kondisi di mana jumlah sampel kelas minoritas jauh lebih sedikit dibandingkan kelas mayoritas, model machine learning biasanya kesulitan mempelajari pola dari kelas minoritas tersebut. SMOTE ini bisa digunakan untuk mengatasi masalah ini dengan cara membuat data sintetis baru, bukan sekadar menduplikasi data yang sudah ada.</p>
+<p>Prinsip kerja SMOTE adalah mencari sampel terdekat dari kelas minoritas, kemudian menghasilkan titik data baru di antara sampel tersebut dengan menggunakan interpolasi. Dengan demikian, data sintetis yang dihasilkan lebih bervariasi dan representatif dibandingkan jika hanya melakukan penyalinan data minoritas secara acak. Pendekatan ini membantu memperluas ruang fitur kelas minoritas, sehingga model dapat mengenali pola dengan lebih baik.</p>
+<p>Kelebihan SMOTE adalah kemampuannya meningkatkan performa model dalam mendeteksi kelas minoritas, terutama pada metrik seperti recall dan F1-score. Namun, metode ini juga memiliki keterbatasan. Jika tidak digunakan dengan hati-hati, data sintetis yang dihasilkan bisa terlalu mirip dengan data asli sehingga menimbulkan overfitting, atau bahkan menciptakan noise bila interpolasi dilakukan pada data yang sebenarnya outlier.</p>
+</section>
+<section id="metode-adasyn">
+<h2>Metode ADASYN<a class="headerlink" href="#metode-adasyn" title="Link to this heading">#</a></h2>
+<p>Adaptive Synthetic Sampling (ADASYN) adalah teknik pembelajaran mesin yang digunakan untuk mengatasi ketidakseimbangan dataset dengan menghasilkan sampel sintetis untuk kelas-kelas yang kurang terwakili. Metode oversampling ini meningkatkan kinerja klasifikasi dengan menyeimbangkan dataset dan mengurangi bias terhadap kelas mayoritas, yang umum terjadi dalam aplikasi dunia nyata seperti penelitian medis, deteksi intrusi jaringan, dan deteksi penipuan.</p>
+<p>ADASYN bekerja dengan menghasilkan sampel sintetis untuk kelas minoritas berdasarkan ruang fitur dari set data asli. ADASYN menghitung distribusi kepadatan setiap sampel kelas minoritas dan menghasilkan sampel sintetis berdasarkan distribusi kepadatan tersebut. Pendekatan adaptif ini memastikan lebih banyak sampel sintetis dihasilkan untuk sampel kelas minoritas yang lebih sulit dipelajari, sehingga meningkatkan kinerja klasifikasi model pembelajaran mesin.</p>
+<p>Keunggulan penggunaan ADASYN dalam aplikasi pembelajaran mesin meliputi:</p>
+<ol class="arabic simple">
+<li><p>Peningkatan kinerja klasifikasi untuk kelas-kelas yang kurang terwakili dengan menghasilkan sampel sintetis dan menyeimbangkan dataset.</p></li>
+<li><p>Pengurangan bias terhadap kelas mayoritas, yang umum terjadi pada dataset yang tidak seimbang.</p></li>
+<li><p>Peningkatan kemampuan generalisasi model pembelajaran mesin, karena ADASYN berfokus pada pembuatan sampel untuk instans kelas minoritas yang sulit dipelajari.</p></li>
+<li><p>Dapat diterapkan pada berbagai aplikasi dunia nyata, seperti deteksi intrusi, penelitian medis, dan deteksi penipuan.</p></li>
+</ol>
+<p>Meskipun ADASYN merupakan teknik yang berharga untuk mengatasi dataset yang tidak seimbang, teknik ini memiliki beberapa keterbatasan:</p>
+<ol class="arabic simple">
+<li><p>Peningkatan kompleksitas komputasi akibat pembuatan sampel sintetis, yang dapat memengaruhi waktu pelatihan model pembelajaran mesin.</p></li>
+<li><p>Potensi overfitting, karena sampel sintetis yang dihasilkan mungkin tidak secara akurat merepresentasikan distribusi dasar kelas minoritas yang sebenarnya.</p></li>
+<li><p>Sensitivitas terhadap derau dan outlier dalam dataset, yang dapat memengaruhi kualitas sampel sintetis yang dihasilkan.</p></li>
+</ol>
+</section>
+<section id="perbedaan-utama-smote-dan-adasyn">
+<h2>Perbedaan Utama SMOTE dan ADASYN<a class="headerlink" href="#perbedaan-utama-smote-dan-adasyn" title="Link to this heading">#</a></h2>
+<p>ADASYN dan SMOTE (Synthetic Minority Over-sampling Technique) keduanya merupakan teknik oversampling yang digunakan untuk mengatasi ketidakseimbangan dataset. Perbedaan utama di antara keduanya adalah ADASYN menghasilkan sampel sintetis secara adaptif berdasarkan distribusi kepadatan sampel kelas minoritas, sementara SMOTE menghasilkan sampel sintetis dengan melakukan interpolasi antar sampel kelas minoritas. Pendekatan adaptif dalam ADASYN ini membantu untuk lebih berfokus pada sampel yang sulit dipelajari, yang berpotensi menghasilkan kinerja klasifikasi yang lebih baik.</p>
+</section>
+<section id="langkah-langkah-penyeimbangan-data">
+<h2>Langkah-Langkah Penyeimbangan Data<a class="headerlink" href="#langkah-langkah-penyeimbangan-data" title="Link to this heading">#</a></h2>
+<p>Dibawah ini beberapa kode yang berfungsi untuk menampilkan data ecoli, menyeimbangkan menggunakan metode SMOTE dan ADASYN. Langkah-langkahnya adalah sebagai berikut:</p>
+<section id="menginstall-library">
+<h3>Menginstall Library<a class="headerlink" href="#menginstall-library" title="Link to this heading">#</a></h3>
+<p>Disini saya menggunakan beberapa pustaka Python untuk membantu mengolah data. Pandas digunakan untuk membaca dan mengatur data dalam bentuk tabel, sedangkan NumPy membantu dalam perhitungan angka dan operasi matematika. Untuk membuat grafik atau visualisasi, digunakan Matplotlib agar data lebih mudah dipahami.</p>
+<p>Pada tahap pengolahan data, StandardScaler digunakan untuk menstandarkan data supaya setiap fitur berada pada skala yang seimbang, sedangkan MinMaxScaler digunakan untuk mengubah data ke dalam rentang tertentu, biasanya antara 0 sampai 1. Agar label kelas bisa diproses oleh komputer, LabelEncoder digunakan untuk mengubah data kategori menjadi angka.</p>
+<p>Selanjutnya, metode PCA (Principal Component Analysis) digunakan untuk mereduksi dimensi data sehingga data yang awalnya memiliki banyak fitur bisa dilihat dalam bentuk grafik 2 dimensi.</p>
+<p>Masalah ketidakseimbangan data juga diatasi dengan menggunakan SMOTE dan ADASYN. Kedua metode ini bekerja dengan membuat data tambahan pada kelas yang jumlahnya sedikit, sehingga distribusi data antar kelas menjadi lebih seimbang.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">imbalanced</span><span class="o">-</span><span class="n">learn</span>
@@ -419,146 +466,981 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting imbalanced-learn
-  Using cached imbalanced_learn-0.12.4-py3-none-any.whl (258 kB)
-Collecting threadpoolctl&gt;=2.0.0
-  Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
-Collecting joblib&gt;=1.1.1
-  Downloading joblib-1.5.2-py3-none-any.whl (308 kB)
-     -------------------------------------- 308.4/308.4 KB 2.4 MB/s eta 0:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting imbalanced-learnNote: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached imbalanced_learn-0.12.4-py3-none-any.whl (258 kB)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (3.6.0)
 Collecting scikit-learn&gt;=1.0.2
   Using cached scikit_learn-1.6.1-cp39-cp39-win_amd64.whl (11.2 MB)
+Requirement already satisfied: numpy&gt;=1.17.3 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (2.0.2)
 Collecting scipy&gt;=1.5.0
-  Downloading scipy-1.13.1-cp39-cp39-win_amd64.whl (46.2 MB)
-     ---------------------------------------- 46.2/46.2 MB 4.4 MB/s eta 0:00:00
-Collecting numpy&gt;=1.17.3
-  Downloading numpy-2.0.2-cp39-cp39-win_amd64.whl (15.9 MB)
-     ---------------------------------------- 15.9/15.9 MB 3.4 MB/s eta 0:00:00
-Installing collected packages: threadpoolctl, numpy, joblib, scipy, scikit-learn, imbalanced-learn
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+  Using cached scipy-1.13.1-cp39-cp39-win_amd64.whl (46.2 MB)
+Collecting joblib&gt;=1.1.1
+  Using cached joblib-1.5.2-py3-none-any.whl (308 kB)
+Installing collected packages: scipy, joblib, scikit-learn, imbalanced-learn
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">imbalanced</span><span class="o">-</span><span class="n">learn</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas
+  Downloading pandas-2.3.2-cp313-cp313-win_amd64.whl.metadata (19 kB)
+Requirement already satisfied: scikit-learn in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (1.6.1)
+Requirement already satisfied: imbalanced-learn in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (0.14.0)
+Collecting matplotlib
+  Downloading matplotlib-3.10.6-cp313-cp313-win_amd64.whl.metadata (11 kB)
+Requirement already satisfied: numpy&gt;=1.26.0 in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (from pandas) (2.2.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\triad\appdata\roaming\python\python313\site-packages (from pandas) (2.9.0.post0)
+Collecting pytz&gt;=2020.1 (from pandas)
+  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata&gt;=2022.7 (from pandas)
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Requirement already satisfied: scipy&gt;=1.6.0 in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (from scikit-learn) (1.15.2)
+Requirement already satisfied: joblib&gt;=1.2.0 in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (from scikit-learn) (1.4.2)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in c:\users\triad\appdata\local\programs\python\python313\lib\site-packages (from scikit-learn) (3.5.0)
+Collecting contourpy&gt;=1.0.1 (from matplotlib)
+  Downloading contourpy-1.3.3-cp313-cp313-win_amd64.whl.metadata (5.5 kB)
+Collecting cycler&gt;=0.10 (from matplotlib)
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools&gt;=4.22.0 (from matplotlib)
+  Downloading fonttools-4.60.0-cp313-cp313-win_amd64.whl.metadata (113 kB)
+Collecting kiwisolver&gt;=1.3.1 (from matplotlib)
+  Downloading kiwisolver-1.4.9-cp313-cp313-win_amd64.whl.metadata (6.4 kB)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\triad\appdata\roaming\python\python313\site-packages (from matplotlib) (24.2)
+Collecting pillow&gt;=8 (from matplotlib)
+  Downloading pillow-11.3.0-cp313-cp313-win_amd64.whl.metadata (9.2 kB)
+Collecting pyparsing&gt;=2.3.1 (from matplotlib)
+  Downloading pyparsing-3.2.5-py3-none-any.whl.metadata (5.0 kB)
+Requirement already satisfied: six&gt;=1.5 in c:\users\triad\appdata\roaming\python\python313\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
+Downloading pandas-2.3.2-cp313-cp313-win_amd64.whl (11.0 MB)
+   ---------------------------------------- 0.0/11.0 MB ? eta -:--:--
+   - -------------------------------------- 0.5/11.0 MB 2.5 MB/s eta 0:00:05
+   ---- ----------------------------------- 1.3/11.0 MB 4.1 MB/s eta 0:00:03
+   ------- -------------------------------- 2.1/11.0 MB 3.8 MB/s eta 0:00:03
+   ------------ --------------------------- 3.4/11.0 MB 4.4 MB/s eta 0:00:02
+   --------------- ------------------------ 4.2/11.0 MB 4.4 MB/s eta 0:00:02
+   ----------------- ---------------------- 4.7/11.0 MB 4.2 MB/s eta 0:00:02
+   --------------------- ------------------ 5.8/11.0 MB 4.1 MB/s eta 0:00:02
+   ------------------------ --------------- 6.8/11.0 MB 4.2 MB/s eta 0:00:01
+   -------------------------- ------------- 7.3/11.0 MB 4.1 MB/s eta 0:00:01
+   ---------------------------- ----------- 7.9/11.0 MB 3.9 MB/s eta 0:00:01
+   ----------------------------- ---------- 8.1/11.0 MB 3.8 MB/s eta 0:00:01
+   ------------------------------- -------- 8.7/11.0 MB 3.6 MB/s eta 0:00:01
+   -------------------------------- ------- 8.9/11.0 MB 3.4 MB/s eta 0:00:01
+   --------------------------------- ------ 9.2/11.0 MB 3.3 MB/s eta 0:00:01
+   ---------------------------------- ----- 9.4/11.0 MB 3.2 MB/s eta 0:00:01
+   ----------------------------------- ---- 9.7/11.0 MB 3.0 MB/s eta 0:00:01
+   ---------------------------------------  10.7/11.0 MB 3.0 MB/s eta 0:00:01
+   ---------------------------------------- 11.0/11.0 MB 3.0 MB/s eta 0:00:00
+Downloading matplotlib-3.10.6-cp313-cp313-win_amd64.whl (8.1 MB)
+   ---------------------------------------- 0.0/8.1 MB ? eta -:--:--
+   --- ------------------------------------ 0.8/8.1 MB 4.1 MB/s eta 0:00:02
+   --------- ------------------------------ 1.8/8.1 MB 4.2 MB/s eta 0:00:02
+   --------------- ------------------------ 3.1/8.1 MB 4.9 MB/s eta 0:00:02
+   ------------------- -------------------- 3.9/8.1 MB 4.6 MB/s eta 0:00:01
+   --------------------- ------------------ 4.5/8.1 MB 4.4 MB/s eta 0:00:01
+   ------------------------ --------------- 5.0/8.1 MB 4.0 MB/s eta 0:00:01
+   ------------------------- -------------- 5.2/8.1 MB 3.7 MB/s eta 0:00:01
+   ----------------------------- ---------- 6.0/8.1 MB 3.6 MB/s eta 0:00:01
+   -------------------------------- ------- 6.6/8.1 MB 3.5 MB/s eta 0:00:01
+   ------------------------------------- -- 7.6/8.1 MB 3.6 MB/s eta 0:00:01
+   ---------------------------------------- 8.1/8.1 MB 3.6 MB/s eta 0:00:00
+Downloading contourpy-1.3.3-cp313-cp313-win_amd64.whl (226 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.60.0-cp313-cp313-win_amd64.whl (2.3 MB)
+   ---------------------------------------- 0.0/2.3 MB ? eta -:--:--
+   ------------- -------------------------- 0.8/2.3 MB 5.9 MB/s eta 0:00:01
+   ------------------ --------------------- 1.0/2.3 MB 4.2 MB/s eta 0:00:01
+   ---------------------------------------- 2.3/2.3 MB 3.9 MB/s eta 0:00:00
+Downloading kiwisolver-1.4.9-cp313-cp313-win_amd64.whl (73 kB)
+Downloading pillow-11.3.0-cp313-cp313-win_amd64.whl (7.0 MB)
+   ---------------------------------------- 0.0/7.0 MB ? eta -:--:--
+   --- ------------------------------------ 0.5/7.0 MB 3.4 MB/s eta 0:00:02
+   --------- ------------------------------ 1.6/7.0 MB 4.0 MB/s eta 0:00:02
+   ------------- -------------------------- 2.4/7.0 MB 3.9 MB/s eta 0:00:02
+   ---------------- ----------------------- 2.9/7.0 MB 3.6 MB/s eta 0:00:02
+   ------------------- -------------------- 3.4/7.0 MB 3.3 MB/s eta 0:00:02
+   ------------------------ --------------- 4.2/7.0 MB 3.5 MB/s eta 0:00:01
+   ---------------------------- ----------- 5.0/7.0 MB 3.7 MB/s eta 0:00:01
+   ------------------------------- -------- 5.5/7.0 MB 3.5 MB/s eta 0:00:01
+   ---------------------------------- ----- 6.0/7.0 MB 3.3 MB/s eta 0:00:01
+   ------------------------------------- -- 6.6/7.0 MB 3.2 MB/s eta 0:00:01
+   ---------------------------------------- 7.0/7.0 MB 3.1 MB/s eta 0:00:00
+Downloading pyparsing-3.2.5-py3-none-any.whl (113 kB)
+Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Installing collected packages: pytz, tzdata, pyparsing, pillow, kiwisolver, fonttools, cycler, contourpy, pandas, matplotlib
+Successfully installed contourpy-1.3.3 cycler-0.12.1 fonttools-4.60.0 kiwisolver-1.4.9 matplotlib-3.10.6 pandas-2.3.2 pillow-11.3.0 pyparsing-3.2.5 pytz-2025.2 tzdata-2025.2
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  WARNING: The scripts fonttools.exe, pyftmerge.exe, pyftsubset.exe and ttx.exe are installed in &#39;c:\Users\triad\AppData\Local\Programs\Python\Python313\Scripts&#39; which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_original.csv&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Info dataset:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cek nilai kosong:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-
-<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sequence_name&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
-
-<span class="n">X</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_features.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">y</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_labels.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data numerik &amp; label sudah dipisah.&quot;</span><span class="p">)</span>
+[notice] A new release of pip is available: 24.3.1 -&gt; 25.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="id1">
+<h3><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_original.csv&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Info dataset:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cek nilai kosong:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-
-<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sequence_name&#39;</span><span class="p">,</span><span class="s1">&#39;class&#39;</span><span class="p">])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
-
-<span class="n">X</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_features.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">y</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_labels.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data numerik &amp; label sudah dipisah.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">ADASYN</span><span class="p">,</span> <span class="n">SMOTE</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">MinMaxScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="membaca-data">
+<h3>Membaca Data<a class="headerlink" href="#membaca-data" title="Link to this heading">#</a></h3>
+<p>Pembacaan data ini perlu dilakukan agar sistem dapat mengetahui fitur0fitur apa saja yang harus diproses. Karena data ecoli sudah saya ekspor ke bentuk csv, maka membaca file nya menggunakan pd.read_csv</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ecoli.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_features.csv&quot;</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_labels.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span> 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>`id`</th>
+      <th>`protein_name`</th>
+      <th>`mcg`</th>
+      <th>`gvh`</th>
+      <th>`lip`</th>
+      <th>`chg`</th>
+      <th>`aac`</th>
+      <th>`alm1`</th>
+      <th>`alm2`</th>
+      <th>`localization_class`</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>AAT_ECOLI</td>
+      <td>0.49</td>
+      <td>0.29</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.56</td>
+      <td>0.24</td>
+      <td>0.35</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>ACEA_ECOLI</td>
+      <td>0.07</td>
+      <td>0.40</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.54</td>
+      <td>0.35</td>
+      <td>0.44</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>ACEK_ECOLI</td>
+      <td>0.56</td>
+      <td>0.40</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.49</td>
+      <td>0.37</td>
+      <td>0.46</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>ACKA_ECOLI</td>
+      <td>0.59</td>
+      <td>0.49</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.52</td>
+      <td>0.45</td>
+      <td>0.36</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>ADI_ECOLI</td>
+      <td>0.23</td>
+      <td>0.32</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.55</td>
+      <td>0.25</td>
+      <td>0.35</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>331</th>
+      <td>332</td>
+      <td>TREA_ECOLI</td>
+      <td>0.74</td>
+      <td>0.56</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.47</td>
+      <td>0.68</td>
+      <td>0.30</td>
+      <td>pp</td>
+    </tr>
+    <tr>
+      <th>332</th>
+      <td>333</td>
+      <td>UGPB_ECOLI</td>
+      <td>0.71</td>
+      <td>0.57</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.48</td>
+      <td>0.35</td>
+      <td>0.32</td>
+      <td>pp</td>
+    </tr>
+    <tr>
+      <th>333</th>
+      <td>334</td>
+      <td>USHA_ECOLI</td>
+      <td>0.61</td>
+      <td>0.60</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.44</td>
+      <td>0.39</td>
+      <td>0.38</td>
+      <td>pp</td>
+    </tr>
+    <tr>
+      <th>334</th>
+      <td>335</td>
+      <td>XYLF_ECOLI</td>
+      <td>0.59</td>
+      <td>0.61</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.42</td>
+      <td>0.42</td>
+      <td>0.37</td>
+      <td>pp</td>
+    </tr>
+    <tr>
+      <th>335</th>
+      <td>336</td>
+      <td>YTFQ_ECOLI</td>
+      <td>0.74</td>
+      <td>0.74</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.31</td>
+      <td>0.53</td>
+      <td>0.52</td>
+      <td>pp</td>
+    </tr>
+  </tbody>
+</table>
+<p>336 rows × 10 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="encoding-data">
+<h2>Encoding Data<a class="headerlink" href="#encoding-data" title="Link to this heading">#</a></h2>
+<p>Kode ini digunakan untuk mengubah label teks menjadi angka agar dapat diproses oleh model machine learning, dan kemudian menampilkan jumlah data di setiap kelas. Langkah ini penting dilakukan terutama sebelum melakukan langkah seperti klasifikasi atau penyeimbangan data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y_enc</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_enc</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    143
+1     77
+7     52
+4     35
+5     20
+6      5
+2      2
+3      2
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">
+<h2>Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan<a class="headerlink" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan" title="Link to this heading">#</a></h2>
+<p>Sebelum dilakukan proses penyeimbangan data, saya membuat grafik batang untuk melihat jumlah sampel pada setiap kelas. Grafik ini membantu saya mengetahui apakah data yang digunakan seimbang atau tidak. Dari grafik tersebut biasanya terlihat bahwa ada kelas yang jumlah datanya jauh lebih banyak dibanding kelas lain. Kondisi seperti ini disebut ketidakseimbangan data (imbalanced data), dan jika dibiarkan, bisa membuat model hanya “menyukai” kelas yang jumlahnya besar saja, sementara kelas kecil diabaikan. Karena itu, grafik ini penting sebagai langkah awal untuk memahami kondisi data sebelum dilakukan penyeimbangan dengan metode seperti SMOTE atau ADASYN.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class_counts</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">scatter</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>
-                       <span class="n">c</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
-                       <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;tab10&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">class_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">class_counts</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Jumlah Sampel per Kelas (Sebelum Penyeimbangan)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Kelas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Sampel&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/862aa6c032312899430ab089c684f624c1f573bf8216c6a0839680a0d71691d8.png" src="_images/862aa6c032312899430ab089c684f624c1f573bf8216c6a0839680a0d71691d8.png" />
+</div>
+</div>
+</section>
+<section id="perbandingan-data-sebelum-dan-sesudah-standarisasi">
+<h2>Perbandingan Data Sebelum dan Sesudah Standarisasi<a class="headerlink" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi" title="Link to this heading">#</a></h2>
+<p>Pada langkah ini, dilakukan proses standarisasi terhadap data. Sebelum distandarisasi, setiap fitur (kolom) memiliki skala yang berbeda-beda. Misalnya, ada fitur dengan nilai kecil (seperti 0.1 atau 0.2) dan ada juga fitur dengan nilai besar. Hal ini bisa membuat algoritma machine learning sulit membandingkan antar fitur karena perbedaan skala tersebut.</p>
+<p>Setelah dilakukan standarisasi menggunakan StandardScaler, semua fitur diubah menjadi skala yang seragam dengan nilai rata-rata mendekati nol dan standar deviasi satu. Dengan cara ini, setiap fitur memiliki pengaruh yang seimbang ketika digunakan dalam pemodelan.</p>
+<p>Tabel pertama menunjukkan data asli sebelum standarisasi, sedangkan tabel kedua memperlihatkan data setelah standarisasi. Perubahan ini memastikan data lebih siap digunakan untuk analisis lebih lanjut, seperti PCA maupun oversampling.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;`&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;protein_name&quot;</span><span class="p">,</span> <span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">]</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">df_before</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">df_after</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Sebelum Standarisasi &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_before</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Sesudah Standarisasi &quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_after</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Sebelum Standarisasi 
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mcg</th>
+      <th>gvh</th>
+      <th>lip</th>
+      <th>chg</th>
+      <th>aac</th>
+      <th>alm1</th>
+      <th>alm2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.49</td>
+      <td>0.29</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.56</td>
+      <td>0.24</td>
+      <td>0.35</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.07</td>
+      <td>0.40</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.54</td>
+      <td>0.35</td>
+      <td>0.44</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.56</td>
+      <td>0.40</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.49</td>
+      <td>0.37</td>
+      <td>0.46</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.59</td>
+      <td>0.49</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.52</td>
+      <td>0.45</td>
+      <td>0.36</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.23</td>
+      <td>0.32</td>
+      <td>0.48</td>
+      <td>0.5</td>
+      <td>0.55</td>
+      <td>0.25</td>
+      <td>0.35</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Sesudah Standarisasi 
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mcg</th>
+      <th>gvh</th>
+      <th>lip</th>
+      <th>chg</th>
+      <th>aac</th>
+      <th>alm1</th>
+      <th>alm2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.051761</td>
+      <td>-1.419531</td>
+      <td>-0.175142</td>
+      <td>-0.054636</td>
+      <td>0.490781</td>
+      <td>-1.207717</td>
+      <td>-0.716084</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-2.212876</td>
+      <td>-0.675967</td>
+      <td>-0.175142</td>
+      <td>-0.054636</td>
+      <td>0.327106</td>
+      <td>-0.697111</td>
+      <td>-0.285665</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.308424</td>
+      <td>-0.675967</td>
+      <td>-0.175142</td>
+      <td>-0.054636</td>
+      <td>-0.082081</td>
+      <td>-0.604273</td>
+      <td>-0.190016</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.462790</td>
+      <td>-0.067597</td>
+      <td>-0.175142</td>
+      <td>-0.054636</td>
+      <td>0.163431</td>
+      <td>-0.232923</td>
+      <td>-0.668259</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.389594</td>
+      <td>-1.216741</td>
+      <td>-0.175142</td>
+      <td>-0.054636</td>
+      <td>0.408944</td>
+      <td>-1.161299</td>
+      <td>-0.716084</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="normalisasi-data-dengan-min-max-scaler">
+<h2>Normalisasi Data dengan Min-Max Scaler<a class="headerlink" href="#normalisasi-data-dengan-min-max-scaler" title="Link to this heading">#</a></h2>
+<p>Pada bagian ini dilakukan normalisasi data menggunakan metode Min-Max Scaler. Normalisasi bertujuan untuk mengubah nilai setiap fitur ke dalam rentang 0 hingga 1, tanpa mengubah pola hubungan antar data. Dengan cara ini, semua fitur berada pada skala yang sama sehingga tidak ada fitur dengan nilai besar yang mendominasi analisis. Tabel hasil normalisasi memperlihatkan data yang sudah dikonversi, di mana setiap kolom kini memiliki nilai yang konsisten dalam rentang 0 sampai 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;protein_name&quot;</span><span class="p">,</span> <span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">X_norm</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">df_norm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_norm</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df_norm</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mcg</th>
+      <th>gvh</th>
+      <th>lip</th>
+      <th>chg</th>
+      <th>aac</th>
+      <th>alm1</th>
+      <th>alm2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.550562</td>
+      <td>0.154762</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.636364</td>
+      <td>0.216495</td>
+      <td>0.353535</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.078652</td>
+      <td>0.285714</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.613636</td>
+      <td>0.329897</td>
+      <td>0.444444</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.629213</td>
+      <td>0.285714</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.556818</td>
+      <td>0.350515</td>
+      <td>0.464646</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.662921</td>
+      <td>0.392857</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.590909</td>
+      <td>0.432990</td>
+      <td>0.363636</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.258427</td>
+      <td>0.190476</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.625000</td>
+      <td>0.226804</td>
+      <td>0.353535</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="implementasi-pca">
+<h2>Implementasi PCA<a class="headerlink" href="#implementasi-pca" title="Link to this heading">#</a></h2>
+<p>Pada tahap ini digunakan metode Principal Component Analysis (PCA) untuk menyederhanakan data. PCA mengambil informasi terpenting dari data yang memiliki banyak variabel, lalu mereduksinya menjadi dua komponen utama (PC1 dan PC2). Dengan cara ini, pola dalam data tetap terjaga meskipun dimensinya dikurangi. Hasilnya berupa data baru dengan dua sumbu utama, sehingga lebih mudah divisualisasikan dalam bentuk scatter plot dan membantu memahami perbedaan antar kelas secara lebih jelas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_pca</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;PC1&quot;</span><span class="p">,</span> <span class="s2">&quot;PC2&quot;</span><span class="p">])</span>
+<span class="n">df_pca</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df_pca</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PC1</th>
+      <th>PC2</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1.290352</td>
+      <td>-0.324912</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.586012</td>
+      <td>-1.034683</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.530483</td>
+      <td>-0.130495</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.261721</td>
+      <td>0.338264</td>
+      <td>cp</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.824364</td>
+      <td>-0.731834</td>
+      <td>cp</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">classes</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">classes</span><span class="p">))</span>  
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="bp">cls</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+                <span class="n">label</span><span class="o">=</span><span class="bp">cls</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;PC1&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;PC2&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ecoli Data - PCA Original&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">scatter</span><span class="o">.</span><span class="n">legend_elements</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">y</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Visualisasi PCA (2 Komponen Utama)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\triad\AppData\Local\Temp\ipykernel_14556\1445468488.py:3: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+  colors = plt.cm.get_cmap(&quot;tab10&quot;, len(classes))
+</pre></div>
+</div>
+<img alt="_images/39fcadc8854607e0476fd219161bc74c6c3a435f9dcf375667fe594ebe85638d.png" src="_images/39fcadc8854607e0476fd219161bc74c6c3a435f9dcf375667fe594ebe85638d.png" />
+</div>
+</div>
+<p>Heatmap dibawah ini menampilkan korelasi antar fitur numerik sebelum dilakukan penyeimbangan dengan SMOTE. Setiap sel menunjukkan seberapa kuat hubungan antara dua fitur, dimana warna merah atau biru menunjukkan korelasi tinggi positif atau negatif, sedangkan warna netral menunjukkan korelasi rendah. Visualisasi ini penting untuk memahami struktur data asli dan melihat apakah ada fitur yang sangat terkait satu sama lain. Dengan mengetahui korelasi sebelum SMOTE, kita bisa memastikan bahwa penambahan sampel sintetis nantinya tidak akan merusak pola hubungan antar fitur.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;localization_class&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span>
+
+<span class="n">corr</span> <span class="o">=</span> <span class="n">numeric_df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">numeric_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">numeric_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">numeric_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">numeric_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Heatmap Korelasi antar Fitur&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/80a4c525c0005d7355903297af558c38db3c170caf3a32d31309f838350d5b82.png" src="_images/80a4c525c0005d7355903297af558c38db3c170caf3a32d31309f838350d5b82.png" />
+</div>
+</div>
+</section>
+<section id="smote">
+<h2>SMOTE<a class="headerlink" href="#smote" title="Link to this heading">#</a></h2>
+<p>Scatter plot ini menampilkan data setelah dikurangi dimensinya menjadi dua komponen utama menggunakan PCA. Setiap titik mewakili satu sampel, dan warnanya menunjukkan kelas masing-masing. Pada data asli, terlihat beberapa kelas memiliki sangat sedikit sampel sehingga titiknya jarang dan distribusinya tidak merata. Kondisi ini dapat membuat model sulit mengenali kelas minoritas. Setelah dilakukan SMOTE, jumlah sampel di kelas-kelas minoritas ditambah dengan membuat titik-titik sintetis. Akibatnya, distribusi antar kelas menjadi lebih seimbang, sehingga model bisa belajar dari semua kelas dengan lebih baik, tanpa kehilangan pola asli data. Scatter plot ini membantu memvisualisasikan perbedaan distribusi sebelum dan sesudah penyeimbangan, serta memastikan bahwa data siap untuk proses pemodelan.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">k_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_smote</span><span class="p">,</span> <span class="n">y_smote</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y_enc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kode ini digunakan untuk menampilkan bagaimana data terlihat setelah dilakukan penyeimbangan menggunakan SMOTE. SMOTE menambahkan sampel baru untuk kelas-kelas yang jumlahnya sedikit sehingga dataset menjadi lebih seimbang. Setelah itu, data direduksi dimensinya menjadi dua komponen utama menggunakan PCA agar bisa divisualisasikan. Pada plot, titik bulat mewakili data asli, sedangkan tanda silang mewakili data sintetis yang dihasilkan SMOTE. Visualisasi ini membantu melihat distribusi data asli dan data tambahan dari SMOTE, memastikan bahwa pola data tetap mirip namun jumlah sampel di setiap kelas lebih merata.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_smote</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
+<span class="n">y_labels</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_smote</span><span class="p">)</span>
+<span class="n">synthetic_mask</span> <span class="o">=</span> <span class="p">[</span><span class="ow">not</span> <span class="nb">any</span><span class="p">((</span><span class="n">X_scaled</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X_scaled</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X_smote</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">):</span>
+    <span class="n">idx_orig</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_labels</span> <span class="o">==</span> <span class="bp">cls</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">synthetic_mask</span><span class="p">))</span>
+    <span class="n">idx_syn</span>  <span class="o">=</span> <span class="p">(</span><span class="n">y_labels</span> <span class="o">==</span> <span class="bp">cls</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">synthetic_mask</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[</span><span class="n">idx_orig</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[</span><span class="n">idx_orig</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">cls</span><span class="si">}</span><span class="s2"> (orig)&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[</span><span class="n">idx_syn</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[</span><span class="n">idx_syn</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">cls</span><span class="si">}</span><span class="s2"> (synthetic)&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;PC1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;PC2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PCA 2D After SMOTE&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\triad\AppData\Local\Temp\ipykernel_14556\2947857954.py:5: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+  colors = plt.cm.get_cmap(&quot;tab10&quot;, len(le.classes_))
+</pre></div>
 </div>
+<img alt="_images/1e9c0a14db4e2ddc5a2e516b71220f7caf15a5742db59f2a45af487566e9c96e.png" src="_images/1e9c0a14db4e2ddc5a2e516b71220f7caf15a5742db59f2a45af487566e9c96e.png" />
+</div>
+</div>
+<p>Heatmap dibawah ini menunjukkan korelasi antar fitur setelah dataset diseimbangkan menggunakan SMOTE. Dengan menambahkan sampel sintetis pada kelas yang lebih sedikit, hubungan antar fitur secara umum tetap terlihat konsisten, namun beberapa korelasi bisa sedikit berubah karena adanya variasi dari data baru yang dihasilkan. Jika dibandingkan dengan heatmap sebelum SMOTE, pola korelasi utama antar fitur tetap sama, menandakan bahwa penyeimbangan tidak mengubah hubungan dasar antar fitur, tetapi membantu dataset menjadi lebih seimbang sehingga model nantinya bisa belajar lebih adil dari semua kelas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">ADASYN</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_smote</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_smote</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
-<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_features.csv&quot;</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_labels.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="n">corr_smote</span> <span class="o">=</span> <span class="n">df_smote</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
 
-<span class="n">adasyn</span> <span class="o">=</span> <span class="n">ADASYN</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">adasyn</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">corr_smote</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distribusi Kelas Sebelum:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distribusi Kelas Sesudah ADASYN:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_res</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_smote</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_smote</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">df_smote</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">df_smote</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
-<span class="n">X_res</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_features_balanced.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_res</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_labels_balanced.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Data hasil ADASYN disimpan.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Heatmap Korelasi Fitur Setelah SMOTE&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/78bd9f3a2d642f533daa0574774d0476c1b2aed9099e8d401e3f2c829f7852ce.png" src="_images/78bd9f3a2d642f533daa0574774d0476c1b2aed9099e8d401e3f2c829f7852ce.png" />
 </div>
+</div>
+</section>
+<section id="adasyn">
+<h2>ADASYN<a class="headerlink" href="#adasyn" title="Link to this heading">#</a></h2>
+<p>Pada percobaan menggunakan ADASYN untuk menyeimbangkan dataset Ecoli, muncul error karena metode ini tidak menemukan tetangga dari kelas mayoritas untuk beberapa sampel minoritas. ADASYN bekerja dengan membuat sampel sintetis berdasarkan jarak ke tetangga mayoritas, sehingga jika jumlah sampel minoritas terlalu sedikit atau terlalu terisolasi, proses ini gagal. Dataset Ecoli memiliki banyak kelas minoritas dengan jumlah sampel sangat sedikit, membuat ADASYN tidak bisa menghasilkan data baru dengan benar. Sebagai solusi, metode SMOTE lebih cocok digunakan karena hanya membutuhkan tetangga dari kelas minoritas itu sendiri untuk membuat sampel sintetis, sehingga lebih stabil untuk dataset dengan distribusi kelas yang tidak seimbang dan jumlah sampel minoritas yang kecil.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adasyn</span> <span class="o">=</span> <span class="n">ADASYN</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">adasyn</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y_enc</span><span class="p">)</span>
 
-<span class="n">X_res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_features_balanced.csv&quot;</span><span class="p">)</span>
-<span class="n">y_res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ecoli_labels_balanced.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="n">synthetic_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">X_res</span><span class="p">])</span>
+<span class="n">y_labels</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_res</span><span class="p">)</span>
 
-<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">X_res_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_res</span><span class="p">)</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_res</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">scatter</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_res_pca</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_res_pca</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>
-                       <span class="n">c</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">y_res</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
-                       <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;tab10&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;tab20&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">):</span>
+    <span class="n">idx_orig</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_labels</span> <span class="o">==</span> <span class="bp">cls</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">synthetic_mask</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[</span><span class="n">idx_orig</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[</span><span class="n">idx_orig</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">cls</span><span class="si">}</span><span class="s2"> (original)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+    <span class="n">idx_syn</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_labels</span> <span class="o">==</span> <span class="bp">cls</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">synthetic_mask</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[</span><span class="n">idx_syn</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[</span><span class="n">idx_syn</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">cls</span><span class="si">}</span><span class="s2"> (synthetic)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PCA 2D After ADASYN - Ecoli Dataset&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;PC1&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;PC2&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ecoli Data - PCA After ADASYN&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">scatter</span><span class="o">.</span><span class="n">legend_elements</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">y_res</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">46</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">adasyn</span> <span class="o">=</span> <span class="n">ADASYN</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">adasyn</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y_enc</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">synthetic_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">X_res</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">y_labels</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_res</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\triad\AppData\Local\Programs\Python\Python313\Lib\site-packages\imblearn\base.py:202,</span> in <span class="ni">BaseSampler.fit_resample</span><span class="nt">(self, X, y, **params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span> <span class="k">def</span><span class="w"> </span><span class="nf">fit_resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Resample the dataset.</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span><span class="sd">     Parameters</span>
+<span class="sd">   (...)    200         The corresponding label of `X_resampled`.</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">202</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\triad\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\base.py:1389,</span> in <span class="ni">_fit_context.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(estimator, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1382</span>     <span class="n">estimator</span><span class="o">.</span><span class="n">_validate_params</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1384</span> <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1385</span>     <span class="n">skip_parameter_validation</span><span class="o">=</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1386</span>         <span class="n">prefer_skip_nested_validation</span> <span class="ow">or</span> <span class="n">global_skip_validation</span>
+<span class="g g-Whitespace">   </span><span class="mi">1387</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1388</span> <span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1389</span>     <span class="k">return</span> <span class="n">fit_method</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\triad\AppData\Local\Programs\Python\Python313\Lib\site-packages\imblearn\base.py:105,</span> in <span class="ni">SamplerMixin.fit_resample</span><span class="nt">(self, X, y, **params)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">binarize_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_X_y</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampling_strategy_</span> <span class="o">=</span> <span class="n">check_sampling_strategy</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="bp">self</span><span class="o">.</span><span class="n">sampling_strategy</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampling_type</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">105</span> <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> <span class="n">y_</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>     <span class="n">label_binarize</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">classes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="k">if</span> <span class="n">binarize_y</span> <span class="k">else</span> <span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span> <span class="n">X_</span><span class="p">,</span> <span class="n">y_</span> <span class="o">=</span> <span class="n">arrays_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\triad\AppData\Local\Programs\Python\Python313\Lib\site-packages\imblearn\over_sampling\_adasyn.py:161,</span> in <span class="ni">ADASYN._fit_resample</span><span class="nt">(self, X, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="n">ratio_nn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">nns</span><span class="p">]</span> <span class="o">!=</span> <span class="n">class_sample</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_neighbors</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ratio_nn</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">161</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span>         <span class="s2">&quot;Not any neigbours belong to the majority&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">163</span>         <span class="s2">&quot; class. This case will induce a NaN case&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">164</span>         <span class="s2">&quot; with a division by zero. ADASYN is not&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">165</span>         <span class="s2">&quot; suited for this specific dataset.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">166</span>         <span class="s2">&quot; Use SMOTE instead.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">167</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span> <span class="n">ratio_nn</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ratio_nn</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span> <span class="n">n_samples_generate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rint</span><span class="p">(</span><span class="n">ratio_nn</span> <span class="o">*</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="ne">RuntimeError</span>: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+</pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="referensi">
+<h2>Referensi<a class="headerlink" href="#referensi" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://p3mpi.uma.ac.id/2024/03/08/memahami-teknik-oversampling-minoritas-sintetik-smote/">https://p3mpi.uma.ac.id/2024/03/08/memahami-teknik-oversampling-minoritas-sintetik-smote/</a>
+<a class="reference external" href="https://www.activeloop.ai/resources/glossary/adaptive-synthetic-sampling-adasyn/">https://www.activeloop.ai/resources/glossary/adaptive-synthetic-sampling-adasyn/</a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -616,10 +1498,25 @@ Installing collected packages: threadpoolctl, numpy, joblib, scipy, scikit-learn
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Menginstall Library</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pentingnya-penyeimbangan-data">Pentingnya Penyeimbangan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-smote">Metode SMOTE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-adasyn">Metode ADASYN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-utama-smote-dan-adasyn">Perbedaan Utama SMOTE dan ADASYN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-penyeimbangan-data">Langkah-Langkah Penyeimbangan Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menginstall-library">Menginstall Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data">Membaca Data</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-data">Encoding Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi">Perbandingan Data Sebelum dan Sesudah Standarisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-dengan-min-max-scaler">Normalisasi Data dengan Min-Max Scaler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pca">Implementasi PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referensi">Referensi</a></li>
+</ul>
   </nav></div>
 
 </div></div>
