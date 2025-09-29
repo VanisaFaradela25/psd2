@@ -22,26 +22,79 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+adasyn = ADASYN(random_state=42, n_neighbors=1)
+X_res, y_res = adasyn.fit_resample(X_scaled, y_enc)
 
-class_counts = y.value_counts()
+synthetic_mask = np.array([not np.any(np.all(np.isclose(X_scaled, r, atol=1e-8), axis=1)) for r in X_res])
+y_labels = le.inverse_transform(y_res)
 
-plt.figure(figsize=(8,5))
-plt.bar(class_counts.index, class_counts.values)
-plt.title("Distribusi Jumlah Sampel per Kelas (Sebelum Penyeimbangan)")
-plt.xlabel("Kelas")
-plt.ylabel("Jumlah Sampel")
-plt.xticks(rotation=45)
+pca = PCA(n_components=2, random_state=42)
+X_pca = pca.fit_transform(X_res)
+
+plt.figure(figsize=(8,6))
+colors = plt.cm.get_cmap("tab20", len(le.classes_))
+
+for i, cls in enumerate(le.classes_):
+    idx_orig = (y_labels == cls) & (~synthetic_mask)
+    plt.scatter(X_pca[idx_orig,0], X_pca[idx_orig,1], label=f"{cls} (original)", color=colors(i), s=50, alpha=0.7)
+
+    idx_syn = (y_labels == cls) & (synthetic_mask)
+    plt.scatter(X_pca[idx_syn,0], X_pca[idx_syn,1], label=f"{cls} (synthetic)", color=colors(i), s=80, marker='X')
+
+plt.title("PCA 2D After ADASYN - Ecoli Dataset")
+plt.xlabel("PC1")
+plt.ylabel("PC2")
+plt.legend(bbox_to_anchor=(1.05,1), loc="upper left", fontsize='small')
+plt.tight_layout()
 plt.show()
-
 ------------------
 
+----- stderr -----
+C:\Users\triad\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+------------------
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mNameError[0m                                 Traceback (most recent call last)
-Cell [1;32mIn[5], line 1[0m
-[1;32m----> 1[0m class_counts [38;5;241m=[39m [43my[49m[38;5;241m.[39mvalue_counts()
-[0;32m      3[0m plt[38;5;241m.[39mfigure(figsize[38;5;241m=[39m([38;5;241m8[39m,[38;5;241m5[39m))
-[0;32m      4[0m plt[38;5;241m.[39mbar(class_counts[38;5;241m.[39mindex, class_counts[38;5;241m.[39mvalues)
+[1;31mRuntimeError[0m                              Traceback (most recent call last)
+Cell [1;32mIn[21], line 2[0m
+[0;32m      1[0m adasyn [38;5;241m=[39m ADASYN(random_state[38;5;241m=[39m[38;5;241m42[39m, n_neighbors[38;5;241m=[39m[38;5;241m1[39m)
+[1;32m----> 2[0m X_res, y_res [38;5;241m=[39m [43madasyn[49m[38;5;241;43m.[39;49m[43mfit_resample[49m[43m([49m[43mX_scaled[49m[43m,[49m[43m [49m[43my_enc[49m[43m)[49m
+[0;32m      4[0m synthetic_mask [38;5;241m=[39m np[38;5;241m.[39marray([[38;5;129;01mnot[39;00m np[38;5;241m.[39many(np[38;5;241m.[39mall(np[38;5;241m.[39misclose(X_scaled, r, atol[38;5;241m=[39m[38;5;241m1e-8[39m), axis[38;5;241m=[39m[38;5;241m1[39m)) [38;5;28;01mfor[39;00m r [38;5;129;01min[39;00m X_res])
+[0;32m      5[0m y_labels [38;5;241m=[39m le[38;5;241m.[39minverse_transform(y_res)
 
-[1;31mNameError[0m: name 'y' is not defined
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\imblearn\base.py:208[0m, in [0;36mBaseSampler.fit_resample[1;34m(self, X, y)[0m
+[0;32m    187[0m [38;5;250m[39m[38;5;124;03m"""Resample the dataset.[39;00m
+[0;32m    188[0m 
+[0;32m    189[0m [38;5;124;03mParameters[39;00m
+[1;32m   (...)[0m
+[0;32m    205[0m [38;5;124;03m    The corresponding label of `X_resampled`.[39;00m
+[0;32m    206[0m [38;5;124;03m"""[39;00m
+[0;32m    207[0m [38;5;28mself[39m[38;5;241m.[39m_validate_params()
+[1;32m--> 208[0m [38;5;28;01mreturn[39;00m [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mfit_resample[49m[43m([49m[43mX[49m[43m,[49m[43m [49m[43my[49m[43m)[49m
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\imblearn\base.py:112[0m, in [0;36mSamplerMixin.fit_resample[1;34m(self, X, y)[0m
+[0;32m    106[0m X, y, binarize_y [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_check_X_y(X, y)
+[0;32m    108[0m [38;5;28mself[39m[38;5;241m.[39msampling_strategy_ [38;5;241m=[39m check_sampling_strategy(
+[0;32m    109[0m     [38;5;28mself[39m[38;5;241m.[39msampling_strategy, y, [38;5;28mself[39m[38;5;241m.[39m_sampling_type
+[0;32m    110[0m )
+[1;32m--> 112[0m output [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_fit_resample[49m[43m([49m[43mX[49m[43m,[49m[43m [49m[43my[49m[43m)[49m
+[0;32m    114[0m y_ [38;5;241m=[39m (
+[0;32m    115[0m     label_binarize(output[[38;5;241m1[39m], classes[38;5;241m=[39mnp[38;5;241m.[39munique(y)) [38;5;28;01mif[39;00m binarize_y [38;5;28;01melse[39;00m output[[38;5;241m1[39m]
+[0;32m    116[0m )
+[0;32m    118[0m X_, y_ [38;5;241m=[39m arrays_transformer[38;5;241m.[39mtransform(output[[38;5;241m0[39m], y_)
+
+File [1;32m~\AppData\Local\Programs\Python\Python39\lib\site-packages\imblearn\over_sampling\_adasyn.py:183[0m, in [0;36mADASYN._fit_resample[1;34m(self, X, y)[0m
+[0;32m    181[0m ratio_nn [38;5;241m=[39m np[38;5;241m.[39msum(y[nns] [38;5;241m!=[39m class_sample, axis[38;5;241m=[39m[38;5;241m1[39m) [38;5;241m/[39m n_neighbors
+[0;32m    182[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m np[38;5;241m.[39msum(ratio_nn):
+[1;32m--> 183[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m(
+[0;32m    184[0m         [38;5;124m"[39m[38;5;124mNot any neigbours belong to the majority[39m[38;5;124m"[39m
+[0;32m    185[0m         [38;5;124m"[39m[38;5;124m class. This case will induce a NaN case[39m[38;5;124m"[39m
+[0;32m    186[0m         [38;5;124m"[39m[38;5;124m with a division by zero. ADASYN is not[39m[38;5;124m"[39m
+[0;32m    187[0m         [38;5;124m"[39m[38;5;124m suited for this specific dataset.[39m[38;5;124m"[39m
+[0;32m    188[0m         [38;5;124m"[39m[38;5;124m Use SMOTE instead.[39m[38;5;124m"[39m
+[0;32m    189[0m     )
+[0;32m    190[0m ratio_nn [38;5;241m/[39m[38;5;241m=[39m np[38;5;241m.[39msum(ratio_nn)
+[0;32m    191[0m n_samples_generate [38;5;241m=[39m np[38;5;241m.[39mrint(ratio_nn [38;5;241m*[39m n_samples)[38;5;241m.[39mastype([38;5;28mint[39m)
+
+[1;31mRuntimeError[0m: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
 
