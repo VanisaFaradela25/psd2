@@ -395,6 +395,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-dengan-min-max-scaler">Normalisasi Data dengan Min-Max Scaler</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pca">Implementasi PCA</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilan-perbandingan-sebelum-data-sesudah-penyeimbangan-data-dengan-smote">Tampilan Perbandingan Sebelum data Sesudah Penyeimbangan Data dengan Smote</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a></li>
 </ul>
 </li>
@@ -463,11 +464,11 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: imbalanced-learn in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (0.12.4)
-Requirement already satisfied: numpy&gt;=1.17.3 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (2.0.2)
-Requirement already satisfied: scikit-learn&gt;=1.0.2 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.6.1)
 Requirement already satisfied: joblib&gt;=1.1.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.5.2)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (3.6.0)
 Requirement already satisfied: scipy&gt;=1.5.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.13.1)
+Requirement already satisfied: scikit-learn&gt;=1.0.2 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.6.1)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (3.6.0)
+Requirement already satisfied: numpy&gt;=1.17.3 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (2.0.2)
 Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
@@ -493,16 +494,16 @@ Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\triad\appdata\local
 Requirement already satisfied: numpy&gt;=1.22.4 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2.0.2)
 Requirement already satisfied: pytz&gt;=2020.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2025.2)
 Requirement already satisfied: scipy&gt;=1.6.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (1.13.1)
-Requirement already satisfied: joblib&gt;=1.2.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (1.5.2)
 Requirement already satisfied: threadpoolctl&gt;=3.1.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (3.6.0)
-Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (4.60.0)
-Requirement already satisfied: pillow&gt;=8 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (11.3.0)
-Requirement already satisfied: packaging&gt;=20.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (25.0)
+Requirement already satisfied: joblib&gt;=1.2.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (1.5.2)
 Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (3.2.5)
-Requirement already satisfied: importlib-resources&gt;=3.2.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (6.5.2)
 Requirement already satisfied: kiwisolver&gt;=1.3.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.4.7)
-Requirement already satisfied: cycler&gt;=0.10 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (6.5.2)
+Requirement already satisfied: pillow&gt;=8 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (11.3.0)
 Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.3.0)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (4.60.0)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (25.0)
 Requirement already satisfied: zipp&gt;=3.1.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib) (3.23.0)
 Requirement already satisfied: six&gt;=1.5 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
 Note: you may need to restart the kernel to use updated packages.
@@ -727,6 +728,35 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 <p>Sebelum dilakukan proses penyeimbangan data, saya membuat grafik batang untuk melihat jumlah sampel pada setiap kelas. Grafik ini membantu saya mengetahui apakah data yang digunakan seimbang atau tidak. Dari grafik tersebut biasanya terlihat bahwa ada kelas yang jumlah datanya jauh lebih banyak dibanding kelas lain. Kondisi seperti ini disebut ketidakseimbangan data (imbalanced data), dan jika dibiarkan, bisa membuat model hanya “menyukai” kelas yang jumlahnya besar saja, sementara kelas kecil diabaikan. Karena itu, grafik ini penting sebagai langkah awal untuk memahami kondisi data sebelum dilakukan penyeimbangan dengan metode seperti SMOTE atau ADASYN.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;`id`&#39;, &#39;`protein_name`&#39;, &#39;`mcg`&#39;, &#39;`gvh`&#39;, &#39;`lip`&#39;, &#39;`chg`&#39;, &#39;`aac`&#39;,
+       &#39;`alm1`&#39;, &#39;`alm2`&#39;, &#39;`localization_class`&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;`&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;protein_name&quot;</span><span class="p">,</span> <span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class_counts</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -740,16 +770,7 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">class_counts</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">class_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">class_counts</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;y&#39; is not defined
-</pre></div>
-</div>
+<img alt="_images/682dd30b61446f69a6b8f902eba80dcd938b928eca97972a396fbc5a5aadffed.png" src="_images/682dd30b61446f69a6b8f902eba80dcd938b928eca97972a396fbc5a5aadffed.png" />
 </div>
 </div>
 </section>
@@ -1148,11 +1169,11 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\triad\AppData\Local\Temp\ipykernel_14556\1445468488.py:3: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\triad\AppData\Local\Temp\ipykernel_1400\1445468488.py:3: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
   colors = plt.cm.get_cmap(&quot;tab10&quot;, len(classes))
 </pre></div>
 </div>
-<img alt="_images/39fcadc8854607e0476fd219161bc74c6c3a435f9dcf375667fe594ebe85638d.png" src="_images/39fcadc8854607e0476fd219161bc74c6c3a435f9dcf375667fe594ebe85638d.png" />
+<img alt="_images/fbc93e536c7ec287b835f7f33a237e0ba70d9b57373a98631037657b1d91ed7e.png" src="_images/fbc93e536c7ec287b835f7f33a237e0ba70d9b57373a98631037657b1d91ed7e.png" />
 </div>
 </div>
 <p>Heatmap dibawah ini menampilkan korelasi antar fitur numerik sebelum dilakukan penyeimbangan dengan SMOTE. Setiap sel menunjukkan seberapa kuat hubungan antara dua fitur, dimana warna merah atau biru menunjukkan korelasi tinggi positif atau negatif, sedangkan warna netral menunjukkan korelasi rendah. Visualisasi ini penting untuk memahami struktur data asli dan melihat apakah ada fitur yang sangat terkait satu sama lain. Dengan mengetahui korelasi sebelum SMOTE, kita bisa memastikan bahwa penambahan sampel sintetis nantinya tidak akan merusak pola hubungan antar fitur.</p>
@@ -1177,7 +1198,7 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/80a4c525c0005d7355903297af558c38db3c170caf3a32d31309f838350d5b82.png" src="_images/80a4c525c0005d7355903297af558c38db3c170caf3a32d31309f838350d5b82.png" />
+<img alt="_images/92a92cc282aaecb54a0a6127ef411865d22039fa0548d6f654ce1ba9f9ef59e9.png" src="_images/92a92cc282aaecb54a0a6127ef411865d22039fa0548d6f654ce1ba9f9ef59e9.png" />
 </div>
 </div>
 </section>
@@ -1186,8 +1207,22 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 <p>Scatter plot ini menampilkan data setelah dikurangi dimensinya menjadi dua komponen utama menggunakan PCA. Setiap titik mewakili satu sampel, dan warnanya menunjukkan kelas masing-masing. Pada data asli, terlihat beberapa kelas memiliki sangat sedikit sampel sehingga titiknya jarang dan distribusinya tidak merata. Kondisi ini dapat membuat model sulit mengenali kelas minoritas. Setelah dilakukan SMOTE, jumlah sampel di kelas-kelas minoritas ditambah dengan membuat titik-titik sintetis. Akibatnya, distribusi antar kelas menjadi lebih seimbang, sehingga model bisa belajar dari semua kelas dengan lebih baik, tanpa kehilangan pola asli data. Scatter plot ini membantu memvisualisasikan perbedaan distribusi sebelum dan sesudah penyeimbangan, serta memastikan bahwa data siap untuk proses pemodelan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y_enc</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">k_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X_smote</span><span class="p">,</span> <span class="n">y_smote</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y_enc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\triad\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
 </pre></div>
 </div>
 </div>
@@ -1219,11 +1254,11 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\triad\AppData\Local\Temp\ipykernel_14556\2947857954.py:5: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\triad\AppData\Local\Temp\ipykernel_1400\2947857954.py:5: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
   colors = plt.cm.get_cmap(&quot;tab10&quot;, len(le.classes_))
 </pre></div>
 </div>
-<img alt="_images/1e9c0a14db4e2ddc5a2e516b71220f7caf15a5742db59f2a45af487566e9c96e.png" src="_images/1e9c0a14db4e2ddc5a2e516b71220f7caf15a5742db59f2a45af487566e9c96e.png" />
+<img alt="_images/fc9561ea89674b27878ea1aa00855884fe7bdbc5fe6044521f3f9be302330497.png" src="_images/fc9561ea89674b27878ea1aa00855884fe7bdbc5fe6044521f3f9be302330497.png" />
 </div>
 </div>
 <p>Heatmap dibawah ini menunjukkan korelasi antar fitur setelah dataset diseimbangkan menggunakan SMOTE. Dengan menambahkan sampel sintetis pada kelas yang lebih sedikit, hubungan antar fitur secara umum tetap terlihat konsisten, namun beberapa korelasi bisa sedikit berubah karena adanya variasi dari data baru yang dihasilkan. Jika dibandingkan dengan heatmap sebelum SMOTE, pola korelasi utama antar fitur tetap sama, menandakan bahwa penyeimbangan tidak mengubah hubungan dasar antar fitur, tetapi membantu dataset menjadi lebih seimbang sehingga model nantinya bisa belajar lebih adil dari semua kelas.</p>
@@ -1248,7 +1283,65 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/78bd9f3a2d642f533daa0574774d0476c1b2aed9099e8d401e3f2c829f7852ce.png" src="_images/78bd9f3a2d642f533daa0574774d0476c1b2aed9099e8d401e3f2c829f7852ce.png" />
+<img alt="_images/f8d5fba1bcc4c694c9c3bd8eec5629f704ac505c39b9ea05751e699e813fe28f.png" src="_images/f8d5fba1bcc4c694c9c3bd8eec5629f704ac505c39b9ea05751e699e813fe28f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class_counts_smote</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_smote</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">class_counts_smote</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">class_counts_smote</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Jumlah Sampel per Kelas (Setelah SMOTE)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Kelas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Sampel&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cc76308f8e8e712c7e181ed7fbdf1efd3ed64f131be381d1cd9e2bd27926fe3d.png" src="_images/cc76308f8e8e712c7e181ed7fbdf1efd3ed64f131be381d1cd9e2bd27926fe3d.png" />
+</div>
+</div>
+</section>
+<section id="tampilan-perbandingan-sebelum-data-sesudah-penyeimbangan-data-dengan-smote">
+<h3>Tampilan Perbandingan Sebelum data Sesudah Penyeimbangan Data dengan Smote<a class="headerlink" href="#tampilan-perbandingan-sebelum-data-sesudah-penyeimbangan-data-dengan-smote" title="Link to this heading">#</a></h3>
+<p>Pada grafik sebelum penyeimbangan, terlihat bahwa beberapa kelas memiliki jumlah sampel yang sangat sedikit dibandingkan kelas lainnya. Misalnya, ada kelas yang hanya memiliki beberapa sampel sementara kelas mayoritas memiliki puluhan sampel. Ketimpangan ini bisa menyebabkan model machine learning lebih condong memprediksi kelas mayoritas dan kesulitan mengenali kelas minoritas. Setelah diterapkan SMOTE, grafik di sebelah kanan menunjukkan distribusi kelas yang sudah lebih seimbang. Semua kelas kini memiliki jumlah sampel yang hampir sama dengan menggunakan metode SMOTE.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class_counts_before</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">class_counts_after</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_smote</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">bars_before</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">class_counts_before</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">class_counts_before</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;salmon&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Distribusi Sampel per Kelas</span><span class="se">\n</span><span class="s2">Sebelum Penyeimbangan&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Kelas&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Sampel&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars_before</span><span class="p">:</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">height</span><span class="p">)),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+
+<span class="n">bars_after</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">class_counts_after</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">class_counts_after</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Distribusi Sampel per Kelas</span><span class="se">\n</span><span class="s2">Setelah SMOTE&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Kelas&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Sampel&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars_after</span><span class="p">:</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">height</span><span class="p">)),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c445e82e6a5b8c028523cdec0de040c366a687187e72aeae6de9dd679411bb8c.png" src="_images/c445e82e6a5b8c028523cdec0de040c366a687187e72aeae6de9dd679411bb8c.png" />
 </div>
 </div>
 </section>
@@ -1286,55 +1379,51 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\triad\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\base.py:474: FutureWarning: `BaseEstimator._validate_data` is deprecated in 1.6 and will be removed in 1.7. Use `sklearn.utils.validation.validate_data` instead. This function becomes public and is part of the scikit-learn developer API.
+  warnings.warn(
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">46</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">adasyn</span> <span class="o">=</span> <span class="n">ADASYN</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">adasyn</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y_enc</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">synthetic_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">X_res</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">y_labels</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_res</span><span class="p">)</span>
 
-<span class="nn">File c:\Users\triad\AppData\Local\Programs\Python\Python313\Lib\site-packages\imblearn\base.py:202,</span> in <span class="ni">BaseSampler.fit_resample</span><span class="nt">(self, X, y, **params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span> <span class="k">def</span><span class="w"> </span><span class="nf">fit_resample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">182</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Resample the dataset.</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">184</span><span class="sd">     Parameters</span>
-<span class="sd">   (...)    200         The corresponding label of `X_resampled`.</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">202</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\imblearn\base.py:208,</span> in <span class="ni">BaseSampler.fit_resample</span><span class="nt">(self, X, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Resample the dataset.</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span><span class="sd"> Parameters</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span><span class="sd">     The corresponding label of `X_resampled`.</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_params</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">208</span> <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-<span class="nn">File c:\Users\triad\AppData\Local\Programs\Python\Python313\Lib\site-packages\sklearn\base.py:1389,</span> in <span class="ni">_fit_context.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(estimator, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1382</span>     <span class="n">estimator</span><span class="o">.</span><span class="n">_validate_params</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1384</span> <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1385</span>     <span class="n">skip_parameter_validation</span><span class="o">=</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1386</span>         <span class="n">prefer_skip_nested_validation</span> <span class="ow">or</span> <span class="n">global_skip_validation</span>
-<span class="g g-Whitespace">   </span><span class="mi">1387</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1388</span> <span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1389</span>     <span class="k">return</span> <span class="n">fit_method</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\imblearn\base.py:112,</span> in <span class="ni">SamplerMixin.fit_resample</span><span class="nt">(self, X, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">binarize_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_X_y</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampling_strategy_</span> <span class="o">=</span> <span class="n">check_sampling_strategy</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>     <span class="bp">self</span><span class="o">.</span><span class="n">sampling_strategy</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampling_type</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">112</span> <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span> <span class="n">y_</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span>     <span class="n">label_binarize</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">classes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="k">if</span> <span class="n">binarize_y</span> <span class="k">else</span> <span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="n">X_</span><span class="p">,</span> <span class="n">y_</span> <span class="o">=</span> <span class="n">arrays_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_</span><span class="p">)</span>
 
-<span class="nn">File c:\Users\triad\AppData\Local\Programs\Python\Python313\Lib\site-packages\imblearn\base.py:105,</span> in <span class="ni">SamplerMixin.fit_resample</span><span class="nt">(self, X, y, **params)</span>
-<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">binarize_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_X_y</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampling_strategy_</span> <span class="o">=</span> <span class="n">check_sampling_strategy</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="bp">self</span><span class="o">.</span><span class="n">sampling_strategy</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sampling_type</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">105</span> <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span> <span class="n">y_</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>     <span class="n">label_binarize</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">classes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="k">if</span> <span class="n">binarize_y</span> <span class="k">else</span> <span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span> <span class="n">X_</span><span class="p">,</span> <span class="n">y_</span> <span class="o">=</span> <span class="n">arrays_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_</span><span class="p">)</span>
-
-<span class="nn">File c:\Users\triad\AppData\Local\Programs\Python\Python313\Lib\site-packages\imblearn\over_sampling\_adasyn.py:161,</span> in <span class="ni">ADASYN._fit_resample</span><span class="nt">(self, X, y)</span>
-<span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="n">ratio_nn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">nns</span><span class="p">]</span> <span class="o">!=</span> <span class="n">class_sample</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_neighbors</span>
-<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ratio_nn</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">161</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">162</span>         <span class="s2">&quot;Not any neigbours belong to the majority&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">163</span>         <span class="s2">&quot; class. This case will induce a NaN case&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">164</span>         <span class="s2">&quot; with a division by zero. ADASYN is not&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">165</span>         <span class="s2">&quot; suited for this specific dataset.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span>         <span class="s2">&quot; Use SMOTE instead.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">167</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span> <span class="n">ratio_nn</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ratio_nn</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span> <span class="n">n_samples_generate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rint</span><span class="p">(</span><span class="n">ratio_nn</span> <span class="o">*</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\imblearn\over_sampling\_adasyn.py:183,</span> in <span class="ni">ADASYN._fit_resample</span><span class="nt">(self, X, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span> <span class="n">ratio_nn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">nns</span><span class="p">]</span> <span class="o">!=</span> <span class="n">class_sample</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_neighbors</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ratio_nn</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">183</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span>         <span class="s2">&quot;Not any neigbours belong to the majority&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>         <span class="s2">&quot; class. This case will induce a NaN case&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>         <span class="s2">&quot; with a division by zero. ADASYN is not&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span>         <span class="s2">&quot; suited for this specific dataset.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span>         <span class="s2">&quot; Use SMOTE instead.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span> <span class="n">ratio_nn</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ratio_nn</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span> <span class="n">n_samples_generate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rint</span><span class="p">(</span><span class="n">ratio_nn</span> <span class="o">*</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
 <span class="ne">RuntimeError</span>: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
 </pre></div>
@@ -1418,6 +1507,7 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-dengan-min-max-scaler">Normalisasi Data dengan Min-Max Scaler</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pca">Implementasi PCA</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilan-perbandingan-sebelum-data-sesudah-penyeimbangan-data-dengan-smote">Tampilan Perbandingan Sebelum data Sesudah Penyeimbangan Data dengan Smote</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a></li>
 </ul>
 </li>
