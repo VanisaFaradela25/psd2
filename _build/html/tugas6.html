@@ -390,7 +390,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menginstall-library">Menginstall Library</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data">Membaca Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-data">Encoding Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi">Perbandingan Data Sebelum dan Sesudah Standarisasi</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-dengan-min-max-scaler">Normalisasi Data dengan Min-Max Scaler</a></li>
@@ -463,16 +462,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting imbalanced-learn
-  Using cached imbalanced_learn-0.12.4-py3-none-any.whl (258 kB)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (3.6.0)
-Collecting scikit-learn&gt;=1.0.2
-  Using cached scikit_learn-1.6.1-cp39-cp39-win_amd64.whl (11.2 MB)
-Requirement already satisfied: scipy&gt;=1.5.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.13.1)
-Requirement already satisfied: joblib&gt;=1.1.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.5.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: imbalanced-learn in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (0.12.4)
 Requirement already satisfied: numpy&gt;=1.17.3 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (2.0.2)
-Installing collected packages: scikit-learn, imbalanced-learn
-Successfully installed imbalanced-learn-0.12.4 scikit-learn-1.6.1
+Requirement already satisfied: scikit-learn&gt;=1.0.2 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.6.1)
+Requirement already satisfied: joblib&gt;=1.1.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.5.2)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (3.6.0)
+Requirement already satisfied: scipy&gt;=1.5.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from imbalanced-learn) (1.13.1)
 Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
@@ -493,21 +488,21 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 Requirement already satisfied: scikit-learn in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (1.6.1)
 Requirement already satisfied: imbalanced-learn in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (0.12.4)
 Requirement already satisfied: matplotlib in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (3.9.4)
-Requirement already satisfied: numpy&gt;=1.22.4 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2.0.2)
-Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2025.2)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2025.2)
+Requirement already satisfied: numpy&gt;=1.22.4 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2.0.2)
 Requirement already satisfied: pytz&gt;=2020.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2025.2)
 Requirement already satisfied: scipy&gt;=1.6.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (1.13.1)
 Requirement already satisfied: joblib&gt;=1.2.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (1.5.2)
 Requirement already satisfied: threadpoolctl&gt;=3.1.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (3.6.0)
-Requirement already satisfied: cycler&gt;=0.10 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (0.12.1)
 Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (4.60.0)
-Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.3.0)
-Requirement already satisfied: packaging&gt;=20.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (25.0)
 Requirement already satisfied: pillow&gt;=8 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (11.3.0)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (25.0)
 Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (3.2.5)
 Requirement already satisfied: importlib-resources&gt;=3.2.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (6.5.2)
 Requirement already satisfied: kiwisolver&gt;=1.3.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.4.7)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.3.0)
 Requirement already satisfied: zipp&gt;=3.1.0 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib) (3.23.0)
 Requirement already satisfied: six&gt;=1.5 in c:\users\triad\appdata\local\programs\python\python39\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
 Note: you may need to restart the kernel to use updated packages.
@@ -727,69 +722,6 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 </div></div></div>
 </div>
 </section>
-<section id="encoding-data">
-<h3>Encoding Data<a class="headerlink" href="#encoding-data" title="Link to this heading">#</a></h3>
-<p>Kode ini digunakan untuk mengubah label teks menjadi angka agar dapat diproses oleh model machine learning, dan kemudian menampilkan jumlah data di setiap kelas. Langkah ini penting dilakukan terutama sebelum melakukan langkah seperti klasifikasi atau penyeimbangan data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">y_enc</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_enc</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\indexes\base.py:3812,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3811</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3812</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3813</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-
-<span class="nn">File pandas/_libs/index.pyx:167,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">File pandas/_libs/index.pyx:196,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7088,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7096,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="ne">KeyError</span>: &#39;localization_class&#39;
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">y_enc</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;localization_class&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_enc</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\frame.py:4107,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4105</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4106</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4107</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4108</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">4109</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\pandas\core\indexes\base.py:3819,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3814</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3815</span>         <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3816</span>         <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3817</span>     <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3818</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3819</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">3820</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3821</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3822</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3823</span>     <span class="c1">#  the TypeError.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3824</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &#39;localization_class&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">
 <h3>Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan<a class="headerlink" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan" title="Link to this heading">#</a></h3>
 <p>Sebelum dilakukan proses penyeimbangan data, saya membuat grafik batang untuk melihat jumlah sampel pada setiap kelas. Grafik ini membantu saya mengetahui apakah data yang digunakan seimbang atau tidak. Dari grafik tersebut biasanya terlihat bahwa ada kelas yang jumlah datanya jauh lebih banyak dibanding kelas lain. Kondisi seperti ini disebut ketidakseimbangan data (imbalanced data), dan jika dibiarkan, bisa membuat model hanya “menyukai” kelas yang jumlahnya besar saja, sementara kelas kecil diabaikan. Karena itu, grafik ini penting sebagai langkah awal untuk memahami kondisi data sebelum dilakukan penyeimbangan dengan metode seperti SMOTE atau ADASYN.</p>
@@ -808,7 +740,16 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/862aa6c032312899430ab089c684f624c1f573bf8216c6a0839680a0d71691d8.png" src="_images/862aa6c032312899430ab089c684f624c1f573bf8216c6a0839680a0d71691d8.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">class_counts</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">class_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">class_counts</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;y&#39; is not defined
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1472,7 +1413,6 @@ You should consider upgrading via the &#39;C:\Users\triad\AppData\Local\Programs
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menginstall-library">Menginstall Library</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data">Membaca Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-data">Encoding Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-jumlah-sampel-per-kelas-sebelum-penyembangan">Distribusi Jumlah Sampel Per Kelas Sebelum Penyembangan</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-data-sebelum-dan-sesudah-standarisasi">Perbandingan Data Sebelum dan Sesudah Standarisasi</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-dengan-min-max-scaler">Normalisasi Data dengan Min-Max Scaler</a></li>
